@@ -11,6 +11,9 @@
 {
     if ((self = [super init]))
     {
+        SPQuad *background = [SPQuad quadWithWidth:Sparrow.stage.width height:Sparrow.stage.height color:0xffffff];
+        [self addChild:background];
+        
         // This is where the code of your game will start;
         // in this sample, we add just a simple quad to see if it works.
         
