@@ -12,6 +12,15 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		3B607011187AEB0A00A2AA0B /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607010187AEB0A00A2AA0B /* TextureManager.m */; };
+		3B607014187B073600A2AA0B /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607013187B073600A2AA0B /* SoundManager.m */; };
+		3B607017187B153900A2AA0B /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607016187B153900A2AA0B /* FileManager.m */; };
+		3B607019187B161E00A2AA0B /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B607018187B161E00A2AA0B /* example.json */; };
+		3B60701B187B1F0D00A2AA0B /* example.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3B60701A187B1F0D00A2AA0B /* example.txt */; };
+		3B60701F187B321C00A2AA0B /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B60701E187B321C00A2AA0B /* Scene.m */; };
+		3B607022187B337800A2AA0B /* SceneDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607021187B337800A2AA0B /* SceneDirector.m */; };
+		3B607025187B36A700A2AA0B /* Assets.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607024187B36A700A2AA0B /* Assets.m */; };
+		3B950FB31877689100BBDD18 /* AssetsDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B950FB21877689100BBDD18 /* AssetsDictionary.m */; };
 		DE3F093811B7B9DC009D4DB0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */; };
 		DE3F093A11B7B9DC009D4DB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */; };
 		DE3F097811B7BABD009D4DB0 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F097711B7BABD009D4DB0 /* OpenAL.framework */; };
@@ -59,6 +68,23 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* App-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "App-Prefix.pch"; sourceTree = "<group>"; };
+		3B60700F187AEB0A00A2AA0B /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
+		3B607010187AEB0A00A2AA0B /* TextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureManager.m; sourceTree = "<group>"; };
+		3B607012187B073600A2AA0B /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		3B607013187B073600A2AA0B /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		3B607015187B153900A2AA0B /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		3B607016187B153900A2AA0B /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		3B607018187B161E00A2AA0B /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
+		3B60701A187B1F0D00A2AA0B /* example.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.txt; sourceTree = "<group>"; };
+		3B60701D187B321C00A2AA0B /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		3B60701E187B321C00A2AA0B /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
+		3B607020187B337800A2AA0B /* SceneDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneDirector.h; sourceTree = "<group>"; };
+		3B607021187B337800A2AA0B /* SceneDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDirector.m; sourceTree = "<group>"; };
+		3B607023187B36A700A2AA0B /* Assets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assets.h; sourceTree = "<group>"; };
+		3B607024187B36A700A2AA0B /* Assets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assets.m; sourceTree = "<group>"; };
+		3B847FE818665EEA00678F84 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		3B950FB11877689100BBDD18 /* AssetsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsDictionary.h; sourceTree = "<group>"; };
+		3B950FB21877689100BBDD18 /* AssetsDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsDictionary.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "App-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -100,6 +126,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3B60701C187B31EE00A2AA0B /* Scene */,
+				3B950FAF187759D400BBDD18 /* Assets */,
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
 				DE4A3DE310FFB2AF00FDA492 /* Game.h */,
@@ -145,6 +173,8 @@
 				DE91027D16244F0C001FD950 /* Default.png */,
 				DE91027F16244F74001FD950 /* Default@2x.png */,
 				DE91027B16244E60001FD950 /* Default-568h@2x.png */,
+				3B607018187B161E00A2AA0B /* example.json */,
+				3B60701A187B1F0D00A2AA0B /* example.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -152,6 +182,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B847FE818665EEA00678F84 /* JavaScriptCore.framework */,
 				DE5C4E6D138ED109004892CA /* libz.dylib */,
 				DE8E6AA316B441A6007EE8BA /* GLKit.framework */,
 				DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */,
@@ -164,6 +195,34 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B60701C187B31EE00A2AA0B /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				3B60701D187B321C00A2AA0B /* Scene.h */,
+				3B60701E187B321C00A2AA0B /* Scene.m */,
+				3B607020187B337800A2AA0B /* SceneDirector.h */,
+				3B607021187B337800A2AA0B /* SceneDirector.m */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		3B950FAF187759D400BBDD18 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3B950FB11877689100BBDD18 /* AssetsDictionary.h */,
+				3B950FB21877689100BBDD18 /* AssetsDictionary.m */,
+				3B60700F187AEB0A00A2AA0B /* TextureManager.h */,
+				3B607010187AEB0A00A2AA0B /* TextureManager.m */,
+				3B607012187B073600A2AA0B /* SoundManager.h */,
+				3B607013187B073600A2AA0B /* SoundManager.m */,
+				3B607015187B153900A2AA0B /* FileManager.h */,
+				3B607016187B153900A2AA0B /* FileManager.m */,
+				3B607023187B36A700A2AA0B /* Assets.h */,
+				3B607024187B36A700A2AA0B /* Assets.m */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		DE4A3DAB10FFB0DB00FDA492 /* Products */ = {
@@ -256,7 +315,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B607019187B161E00A2AA0B /* example.json in Resources */,
 				DE91027C16244E60001FD950 /* Default-568h@2x.png in Resources */,
+				3B60701B187B1F0D00A2AA0B /* example.txt in Resources */,
 				DE91027E16244F0C001FD950 /* Default.png in Resources */,
 				DE91028016244F74001FD950 /* Default@2x.png in Resources */,
 			);
@@ -269,8 +330,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B607022187B337800A2AA0B /* SceneDirector.m in Sources */,
+				3B60701F187B321C00A2AA0B /* Scene.m in Sources */,
+				3B607025187B36A700A2AA0B /* Assets.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				3B950FB31877689100BBDD18 /* AssetsDictionary.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
+				3B607014187B073600A2AA0B /* SoundManager.m in Sources */,
+				3B607011187AEB0A00A2AA0B /* TextureManager.m in Sources */,
+				3B607017187B153900A2AA0B /* FileManager.m in Sources */,
 				DE4A3DE510FFB2AF00FDA492 /* Game.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
