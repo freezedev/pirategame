@@ -35,8 +35,8 @@
 
 -(void) showScene:(NSString *)name
 {
-    for (Scene* scene in _dict) {
-        scene.visible = NO;
+    for (NSString* sceneName in _dict) {
+        ((Scene *) _dict[sceneName]).visible = false;
     }
     
     if (_dict[name] != nil) {
