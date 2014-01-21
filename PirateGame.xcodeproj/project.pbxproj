@@ -12,6 +12,29 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		3B13CF87188DC52800C93909 /* cove.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF72188DC52800C93909 /* cove.png */; };
+		3B13CF88188DC52800C93909 /* cove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF73188DC52800C93909 /* cove@2x.png */; };
+		3B13CF89188DC52800C93909 /* cove@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF74188DC52800C93909 /* cove@4x.png */; };
+		3B13CF8A188DC52800C93909 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF75188DC52800C93909 /* house.png */; };
+		3B13CF8B188DC52800C93909 /* house@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF76188DC52800C93909 /* house@2x.png */; };
+		3B13CF8C188DC52800C93909 /* house@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF77188DC52800C93909 /* house@4x.png */; };
+		3B13CF8D188DC52800C93909 /* ship_pirate.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF78188DC52800C93909 /* ship_pirate.png */; };
+		3B13CF8E188DC52800C93909 /* ship_pirate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF79188DC52800C93909 /* ship_pirate@2x.png */; };
+		3B13CF8F188DC52800C93909 /* ship_pirate@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF7A188DC52800C93909 /* ship_pirate@4x.png */; };
+		3B13CF90188DC52800C93909 /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF7B188DC52800C93909 /* ship.png */; };
+		3B13CF91188DC52800C93909 /* ship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF7C188DC52800C93909 /* ship@2x.png */; };
+		3B13CF92188DC52800C93909 /* ship@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF7D188DC52800C93909 /* ship@4x.png */; };
+		3B13CF93188DC52800C93909 /* tavern.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF7E188DC52800C93909 /* tavern.png */; };
+		3B13CF94188DC52800C93909 /* tavern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF7F188DC52800C93909 /* tavern@2x.png */; };
+		3B13CF95188DC52800C93909 /* tavern@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF80188DC52800C93909 /* tavern@4x.png */; };
+		3B13CF96188DC52800C93909 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF81188DC52800C93909 /* water.png */; };
+		3B13CF97188DC52800C93909 /* water@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF82188DC52800C93909 /* water@2x.png */; };
+		3B13CF98188DC52800C93909 /* water@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF83188DC52800C93909 /* water@4x.png */; };
+		3B13CF99188DC52800C93909 /* weaponsmith.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF84188DC52800C93909 /* weaponsmith.png */; };
+		3B13CF9A188DC52800C93909 /* weaponsmith@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF85188DC52800C93909 /* weaponsmith@2x.png */; };
+		3B13CF9B188DC52800C93909 /* weaponsmith@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF86188DC52800C93909 /* weaponsmith@4x.png */; };
+		3B13CF9F188DC7D600C93909 /* Battlefield.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13CF9E188DC7D600C93909 /* Battlefield.m */; };
+		3B13CFA2188DC7FF00C93909 /* PirateCove.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B13CFA1188DC7FF00C93909 /* PirateCove.m */; };
 		3B607011187AEB0A00A2AA0B /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607010187AEB0A00A2AA0B /* TextureManager.m */; };
 		3B607014187B073600A2AA0B /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607013187B073600A2AA0B /* SoundManager.m */; };
 		3B607017187B153900A2AA0B /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607016187B153900A2AA0B /* FileManager.m */; };
@@ -68,6 +91,31 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* App-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "App-Prefix.pch"; sourceTree = "<group>"; };
+		3B13CF72188DC52800C93909 /* cove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cove.png; sourceTree = "<group>"; };
+		3B13CF73188DC52800C93909 /* cove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cove@2x.png"; sourceTree = "<group>"; };
+		3B13CF74188DC52800C93909 /* cove@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cove@4x.png"; sourceTree = "<group>"; };
+		3B13CF75188DC52800C93909 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
+		3B13CF76188DC52800C93909 /* house@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house@2x.png"; sourceTree = "<group>"; };
+		3B13CF77188DC52800C93909 /* house@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house@4x.png"; sourceTree = "<group>"; };
+		3B13CF78188DC52800C93909 /* ship_pirate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_pirate.png; sourceTree = "<group>"; };
+		3B13CF79188DC52800C93909 /* ship_pirate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ship_pirate@2x.png"; sourceTree = "<group>"; };
+		3B13CF7A188DC52800C93909 /* ship_pirate@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ship_pirate@4x.png"; sourceTree = "<group>"; };
+		3B13CF7B188DC52800C93909 /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
+		3B13CF7C188DC52800C93909 /* ship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ship@2x.png"; sourceTree = "<group>"; };
+		3B13CF7D188DC52800C93909 /* ship@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ship@4x.png"; sourceTree = "<group>"; };
+		3B13CF7E188DC52800C93909 /* tavern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tavern.png; sourceTree = "<group>"; };
+		3B13CF7F188DC52800C93909 /* tavern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tavern@2x.png"; sourceTree = "<group>"; };
+		3B13CF80188DC52800C93909 /* tavern@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tavern@4x.png"; sourceTree = "<group>"; };
+		3B13CF81188DC52800C93909 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
+		3B13CF82188DC52800C93909 /* water@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "water@2x.png"; sourceTree = "<group>"; };
+		3B13CF83188DC52800C93909 /* water@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "water@4x.png"; sourceTree = "<group>"; };
+		3B13CF84188DC52800C93909 /* weaponsmith.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weaponsmith.png; sourceTree = "<group>"; };
+		3B13CF85188DC52800C93909 /* weaponsmith@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weaponsmith@2x.png"; sourceTree = "<group>"; };
+		3B13CF86188DC52800C93909 /* weaponsmith@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weaponsmith@4x.png"; sourceTree = "<group>"; };
+		3B13CF9D188DC7D600C93909 /* Battlefield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Battlefield.h; sourceTree = "<group>"; };
+		3B13CF9E188DC7D600C93909 /* Battlefield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Battlefield.m; sourceTree = "<group>"; };
+		3B13CFA0188DC7FF00C93909 /* PirateCove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PirateCove.h; sourceTree = "<group>"; };
+		3B13CFA1188DC7FF00C93909 /* PirateCove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PirateCove.m; sourceTree = "<group>"; };
 		3B60700F187AEB0A00A2AA0B /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
 		3B607010187AEB0A00A2AA0B /* TextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureManager.m; sourceTree = "<group>"; };
 		3B607012187B073600A2AA0B /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
@@ -126,6 +174,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3B31A1A3188C6AFF007D2A41 /* GameScenes */,
 				3B60701C187B31EE00A2AA0B /* Scene */,
 				3B950FAF187759D400BBDD18 /* Assets */,
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
@@ -170,6 +219,27 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3B13CF72188DC52800C93909 /* cove.png */,
+				3B13CF73188DC52800C93909 /* cove@2x.png */,
+				3B13CF74188DC52800C93909 /* cove@4x.png */,
+				3B13CF75188DC52800C93909 /* house.png */,
+				3B13CF76188DC52800C93909 /* house@2x.png */,
+				3B13CF77188DC52800C93909 /* house@4x.png */,
+				3B13CF78188DC52800C93909 /* ship_pirate.png */,
+				3B13CF79188DC52800C93909 /* ship_pirate@2x.png */,
+				3B13CF7A188DC52800C93909 /* ship_pirate@4x.png */,
+				3B13CF7B188DC52800C93909 /* ship.png */,
+				3B13CF7C188DC52800C93909 /* ship@2x.png */,
+				3B13CF7D188DC52800C93909 /* ship@4x.png */,
+				3B13CF7E188DC52800C93909 /* tavern.png */,
+				3B13CF7F188DC52800C93909 /* tavern@2x.png */,
+				3B13CF80188DC52800C93909 /* tavern@4x.png */,
+				3B13CF81188DC52800C93909 /* water.png */,
+				3B13CF82188DC52800C93909 /* water@2x.png */,
+				3B13CF83188DC52800C93909 /* water@4x.png */,
+				3B13CF84188DC52800C93909 /* weaponsmith.png */,
+				3B13CF85188DC52800C93909 /* weaponsmith@2x.png */,
+				3B13CF86188DC52800C93909 /* weaponsmith@4x.png */,
 				DE91027D16244F0C001FD950 /* Default.png */,
 				DE91027F16244F74001FD950 /* Default@2x.png */,
 				DE91027B16244E60001FD950 /* Default-568h@2x.png */,
@@ -195,6 +265,17 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B31A1A3188C6AFF007D2A41 /* GameScenes */ = {
+			isa = PBXGroup;
+			children = (
+				3B13CFA0188DC7FF00C93909 /* PirateCove.h */,
+				3B13CFA1188DC7FF00C93909 /* PirateCove.m */,
+				3B13CF9D188DC7D600C93909 /* Battlefield.h */,
+				3B13CF9E188DC7D600C93909 /* Battlefield.m */,
+			);
+			name = GameScenes;
 			sourceTree = "<group>";
 		};
 		3B60701C187B31EE00A2AA0B /* Scene */ = {
@@ -315,11 +396,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B13CF88188DC52800C93909 /* cove@2x.png in Resources */,
+				3B13CF8A188DC52800C93909 /* house.png in Resources */,
 				3B607019187B161E00A2AA0B /* example.json in Resources */,
 				DE91027C16244E60001FD950 /* Default-568h@2x.png in Resources */,
+				3B13CF87188DC52800C93909 /* cove.png in Resources */,
+				3B13CF93188DC52800C93909 /* tavern.png in Resources */,
+				3B13CF92188DC52800C93909 /* ship@4x.png in Resources */,
+				3B13CF8F188DC52800C93909 /* ship_pirate@4x.png in Resources */,
 				3B60701B187B1F0D00A2AA0B /* example.txt in Resources */,
+				3B13CF98188DC52800C93909 /* water@4x.png in Resources */,
 				DE91027E16244F0C001FD950 /* Default.png in Resources */,
+				3B13CF8B188DC52800C93909 /* house@2x.png in Resources */,
+				3B13CF8C188DC52800C93909 /* house@4x.png in Resources */,
 				DE91028016244F74001FD950 /* Default@2x.png in Resources */,
+				3B13CF90188DC52800C93909 /* ship.png in Resources */,
+				3B13CF91188DC52800C93909 /* ship@2x.png in Resources */,
+				3B13CF8D188DC52800C93909 /* ship_pirate.png in Resources */,
+				3B13CF99188DC52800C93909 /* weaponsmith.png in Resources */,
+				3B13CF95188DC52800C93909 /* tavern@4x.png in Resources */,
+				3B13CF89188DC52800C93909 /* cove@4x.png in Resources */,
+				3B13CF9B188DC52800C93909 /* weaponsmith@4x.png in Resources */,
+				3B13CF8E188DC52800C93909 /* ship_pirate@2x.png in Resources */,
+				3B13CF94188DC52800C93909 /* tavern@2x.png in Resources */,
+				3B13CF9A188DC52800C93909 /* weaponsmith@2x.png in Resources */,
+				3B13CF97188DC52800C93909 /* water@2x.png in Resources */,
+				3B13CF96188DC52800C93909 /* water.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,9 +437,11 @@
 				3B607025187B36A700A2AA0B /* Assets.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				3B950FB31877689100BBDD18 /* AssetsDictionary.m in Sources */,
+				3B13CFA2188DC7FF00C93909 /* PirateCove.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				3B607014187B073600A2AA0B /* SoundManager.m in Sources */,
 				3B607011187AEB0A00A2AA0B /* TextureManager.m in Sources */,
+				3B13CF9F188DC7D600C93909 /* Battlefield.m in Sources */,
 				3B607017187B153900A2AA0B /* FileManager.m in Sources */,
 				DE4A3DE510FFB2AF00FDA492 /* Game.m in Sources */,
 			);
