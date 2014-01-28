@@ -8,6 +8,8 @@
 
 #import "Scene.h"
 
-@interface Battlefield : Scene
+@interface Battlefield : Scene {
+    SPImage* _pirateShip;
+}
 
 @end
