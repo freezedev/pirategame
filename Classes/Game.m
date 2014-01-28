@@ -25,7 +25,7 @@
         [director addScene:pirateCove];
         [director addScene:battlefield];
         
-        [director showScene:@"piratecove"];
+        [director showScene:@"battlefield"];
         
         
     }
