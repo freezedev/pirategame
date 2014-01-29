@@ -75,6 +75,16 @@
         
         [Sparrow.juggler addObject:shipTween];
         
+        SPTextureAtlas *atlas = [SPTextureAtlas atlasWithContentsOfFile:@"ship_pirate_small_cannon.xml"];
+        
+        NSArray *textures = [atlas texturesStartingWith:@"00"];
+        
+        SPMovieClip *cannonShip = [SPMovieClip movieWithFrames:textures fps:20.0f];
+        cannonShip.x = 200;
+        cannonShip.y = 50;
+        
+        [cannonShip play];
+        [Sparrow.juggler addObject:cannonShip];
         
         [background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_pirateShip addEventListener:@selector(onShipStop:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
@@ -82,6 +92,7 @@
         [self addChild:background];
         [self addChild:ship];
         [self addChild:_pirateShip];
+        [self addChild:cannonShip];
     }
     
     return self;

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:c6ab9b84630aa840f65aee228f5cf83e:aa55eaa1ac318f940d8c972de617075e:9e0a4549107632fbd952ab702bfc21e4$ -->
+<TextureAtlas imagePath="ship_pirate_small_cannon@2x.pvr.gz">
+    <SubTexture name="0001" x="0" y="0" width="160" height="160"/>
+    <SubTexture name="0002" x="160" y="0" width="160" height="160"/>
+    <SubTexture name="0003" x="320" y="0" width="160" height="160"/>
+    <SubTexture name="0004" x="480" y="0" width="160" height="160"/>
+    <SubTexture name="0005" x="640" y="0" width="160" height="160"/>
+    <SubTexture name="0006" x="800" y="0" width="160" height="160"/>
+    <SubTexture name="0007" x="0" y="160" width="160" height="160"/>
+    <SubTexture name="0008" x="160" y="160" width="160" height="160"/>
+    <SubTexture name="0009" x="320" y="160" width="160" height="160"/>
+    <SubTexture name="0010" x="480" y="160" width="160" height="160"/>
+    <SubTexture name="0011" x="640" y="160" width="160" height="160"/>
+    <SubTexture name="0012" x="800" y="160" width="160" height="160"/>
+    <SubTexture name="0013" x="0" y="320" width="160" height="160"/>
+    <SubTexture name="0014" x="160" y="320" width="160" height="160"/>
+    <SubTexture name="0015" x="320" y="320" width="160" height="160"/>
+    <SubTexture name="0016" x="480" y="320" width="160" height="160"/>
+    <SubTexture name="0017" x="640" y="320" width="160" height="160"/>
+    <SubTexture name="0018" x="800" y="320" width="160" height="160"/>
+    <SubTexture name="0019" x="0" y="480" width="160" height="160"/>
+    <SubTexture name="0020" x="160" y="480" width="160" height="160"/>
+    <SubTexture name="0021" x="320" y="480" width="160" height="160"/>
+    <SubTexture name="0022" x="480" y="480" width="160" height="160"/>
+    <SubTexture name="0023" x="640" y="480" width="160" height="160"/>
+    <SubTexture name="0024" x="800" y="480" width="160" height="160"/>
+    <SubTexture name="0025" x="0" y="640" width="160" height="160"/>
+    <SubTexture name="0026" x="160" y="640" width="160" height="160"/>
+    <SubTexture name="0027" x="320" y="640" width="160" height="160"/>
+    <SubTexture name="0028" x="480" y="640" width="160" height="160"/>
+    <SubTexture name="0029" x="640" y="640" width="160" height="160"/>
+    <SubTexture name="0030" x="800" y="640" width="160" height="160"/>
+    <SubTexture name="0031" x="0" y="800" width="160" height="160"/>
+    <SubTexture name="0032" x="160" y="800" width="160" height="160"/>
+</TextureAtlas>
