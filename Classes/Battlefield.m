@@ -16,30 +16,7 @@
     SPTouch *touch = [[event touchesWithTarget:self] anyObject];
     
     if (touch) {
-        [Sparrow.juggler removeObjectsWithTarget:_pirateShip];
-        
-        float targetX = touch.globalX - (_pirateShip.width / 2);
-        float targetY = touch.globalY - (_pirateShip.height / 2);
-        
-        float distanceX = fabsf(_pirateShip.x - targetX);
-        float distanceY = fabsf(_pirateShip.y - targetY);
-        
-        float penalty = (distanceX + distanceY) / 80.0f;
-        
-        float shipInitial = 0.25f + penalty;
-        
-        float speedX = shipInitial + (distanceX / Sparrow.stage.width) * penalty * penalty;
-        float speedY = shipInitial + (distanceY / Sparrow.stage.height) * penalty * penalty;
-        
-        SPTween *tweenX = [SPTween tweenWithTarget:_pirateShip time:speedX];
-        SPTween *tweenY = [SPTween tweenWithTarget:_pirateShip time:speedY];
-        
-        
-        [tweenX animateProperty:@"x" targetValue:targetX];
-        [tweenY animateProperty:@"y" targetValue:targetY];
-        
-        [Sparrow.juggler addObject:tweenX];
-        [Sparrow.juggler addObject:tweenY];
+        [_pirateShip moveToX:touch.globalX andY:touch.globalY];
     }
 }
 
@@ -48,7 +25,7 @@
     SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseBegan] anyObject];
     
     if (touch) {
-        [Sparrow.juggler removeObjectsWithTarget:_pirateShip];
+        [_pirateShip stop];
     }
 }
 
@@ -59,11 +36,12 @@
         background.x = (Sparrow.stage.width - background.width) / 2;
         background.y = (Sparrow.stage.height - background.height) / 2;
         
-        _pirateShip = [SPImage imageWithTexture:[Assets texture:@"ship_pirate.png"]];
+        _pirateShip = [[Ship alloc] initWithContentsOfFile:@"ship_pirate.png"];
         _pirateShip.x = (Sparrow.stage.width - _pirateShip.width) / 2;
         _pirateShip.y = (Sparrow.stage.height - _pirateShip.height) / 2;
+
         
-        SPImage *ship = [SPImage imageWithTexture:[Assets texture:@"ship.png"]];
+        Ship *ship = [[Ship alloc] initWithContentsOfFile:@"ship.png"];
         ship.x = 100;
         ship.y = 100;
         
@@ -75,22 +53,12 @@
         
         [Sparrow.juggler addObject:shipTween];
         
-        NSArray *textures = [[Assets textureAtlas:@"ship_pirate_small_cannon.xml"] texturesStartingWith:@"00"];
-        
-        SPMovieClip *cannonShip = [SPMovieClip movieWithFrames:textures fps:20.0f];
-        cannonShip.x = 200;
-        cannonShip.y = 50;
-        
-        [cannonShip play];
-        [Sparrow.juggler addObject:cannonShip];
-        
         [background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_pirateShip addEventListener:@selector(onShipStop:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         
         [self addChild:background];
         [self addChild:ship];
         [self addChild:_pirateShip];
-        [self addChild:cannonShip];
     }
     
     return self;

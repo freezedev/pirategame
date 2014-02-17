@@ -7,9 +7,10 @@
 //
 
 #import "Scene.h"
+#import "Ship.h"
 
 @interface Battlefield : Scene {
-    SPImage* _pirateShip;
+    Ship* _pirateShip;
 }
 
 @end
