@@ -41,6 +41,8 @@
 		3B254A081898744C00F49DBA /* ship_pirate_small_cannon.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B254A021898744C00F49DBA /* ship_pirate_small_cannon.xml */; };
 		3B254A091898744C00F49DBA /* ship_pirate_small_cannon@2x.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B254A031898744C00F49DBA /* ship_pirate_small_cannon@2x.xml */; };
 		3B254A0A1898744C00F49DBA /* ship_pirate_small_cannon@4x.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B254A041898744C00F49DBA /* ship_pirate_small_cannon@4x.xml */; };
+		3B5650BD18B0C6760033A96E /* Ship.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5650BC18B0C6760033A96E /* Ship.m */; };
+		3B5650C018B0C68E0033A96E /* PirateShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5650BF18B0C68E0033A96E /* PirateShip.m */; };
 		3B607011187AEB0A00A2AA0B /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607010187AEB0A00A2AA0B /* TextureManager.m */; };
 		3B607014187B073600A2AA0B /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607013187B073600A2AA0B /* SoundManager.m */; };
 		3B607017187B153900A2AA0B /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607016187B153900A2AA0B /* FileManager.m */; };
@@ -128,6 +130,10 @@
 		3B254A021898744C00F49DBA /* ship_pirate_small_cannon.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ship_pirate_small_cannon.xml; sourceTree = "<group>"; };
 		3B254A031898744C00F49DBA /* ship_pirate_small_cannon@2x.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "ship_pirate_small_cannon@2x.xml"; sourceTree = "<group>"; };
 		3B254A041898744C00F49DBA /* ship_pirate_small_cannon@4x.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "ship_pirate_small_cannon@4x.xml"; sourceTree = "<group>"; };
+		3B5650BB18B0C6760033A96E /* Ship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ship.h; sourceTree = "<group>"; };
+		3B5650BC18B0C6760033A96E /* Ship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ship.m; sourceTree = "<group>"; };
+		3B5650BE18B0C68E0033A96E /* PirateShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PirateShip.h; sourceTree = "<group>"; };
+		3B5650BF18B0C68E0033A96E /* PirateShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PirateShip.m; sourceTree = "<group>"; };
 		3B60700F187AEB0A00A2AA0B /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
 		3B607010187AEB0A00A2AA0B /* TextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureManager.m; sourceTree = "<group>"; };
 		3B607012187B073600A2AA0B /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3B5650B918B0C63F0033A96E /* Entities */,
 				3B31A1A3188C6AFF007D2A41 /* GameScenes */,
 				3B60701C187B31EE00A2AA0B /* Scene */,
 				3B950FAF187759D400BBDD18 /* Assets */,
@@ -294,6 +301,17 @@
 				3B13CF9E188DC7D600C93909 /* Battlefield.m */,
 			);
 			name = GameScenes;
+			sourceTree = "<group>";
+		};
+		3B5650B918B0C63F0033A96E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3B5650BB18B0C6760033A96E /* Ship.h */,
+				3B5650BC18B0C6760033A96E /* Ship.m */,
+				3B5650BE18B0C68E0033A96E /* PirateShip.h */,
+				3B5650BF18B0C68E0033A96E /* PirateShip.m */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 		3B60701C187B31EE00A2AA0B /* Scene */ = {
@@ -456,9 +474,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B5650BD18B0C6760033A96E /* Ship.m in Sources */,
 				3B607022187B337800A2AA0B /* SceneDirector.m in Sources */,
 				3B60701F187B321C00A2AA0B /* Scene.m in Sources */,
 				3B607025187B36A700A2AA0B /* Assets.m in Sources */,
+				3B5650C018B0C68E0033A96E /* PirateShip.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				3B950FB31877689100BBDD18 /* AssetsDictionary.m in Sources */,
 				3B13CFA2188DC7FF00C93909 /* PirateCove.m in Sources */,
