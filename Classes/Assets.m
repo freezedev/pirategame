@@ -37,6 +37,11 @@ static FileManager *fileAssets = nil;
     return [textureAssets registerTexture:filename];
 }
 
++(SPTextureAtlas *) textureAtlas:(NSString*)filename
+{
+    return [textureAssets registerTextureAtlas:filename];
+}
+
 +(SPSound *) sound:(NSString *)filename
 {
     return [soundAssets registerSound:filename];

@@ -11,5 +11,6 @@
 @interface TextureManager : AssetsDictionary
 
 -(SPTexture *) registerTexture:(NSString *) filename;
+-(SPTextureAtlas *) registerTextureAtlas:(NSString *) filename;
 
 @end

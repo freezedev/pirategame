@@ -11,6 +11,7 @@
 @interface Assets : NSObject
 
 +(SPTexture *) texture:(NSString *)filename;
++(SPTextureAtlas *) textureAtlas:(NSString*)filename;
 +(SPSound *) sound:(NSString *)filename;
 +(NSString *) plainText:(NSString *)filename;
 +(NSDictionary *) dictionaryFromJSON:(NSString *)filename;
