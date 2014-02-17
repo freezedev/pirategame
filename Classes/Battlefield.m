@@ -75,9 +75,7 @@
         
         [Sparrow.juggler addObject:shipTween];
         
-        SPTextureAtlas *atlas = [SPTextureAtlas atlasWithContentsOfFile:@"ship_pirate_small_cannon.xml"];
-        
-        NSArray *textures = [atlas texturesStartingWith:@"00"];
+        NSArray *textures = [[Assets textureAtlas:@"ship_pirate_small_cannon.xml"] texturesStartingWith:@"00"];
         
         SPMovieClip *cannonShip = [SPMovieClip movieWithFrames:textures fps:20.0f];
         cannonShip.x = 200;
