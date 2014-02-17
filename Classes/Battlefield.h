@@ -10,7 +10,7 @@
 #import "Ship.h"
 
 @interface Battlefield : Scene {
-    Ship* _pirateShip;
+    Ship *_pirateShip;
 }
 
 @end
