@@ -9,13 +9,15 @@
 #import "SPSprite.h"
 
 @interface Ship : SPSprite {
-    SPMovieClip *_shootClip;
-    SPMovieClip *_movingClip;
+    SPMovieClip *_shootingClip;
+    SPImage *_image;
 }
+
+-(id)initWithContentsOfFile:(NSString *)filename;
 
 -(void) shoot;
 
--(void) moveTo: (int) x y: (int) y;
+-(void) moveToX:(float) x andY:(float) y;
 -(void) stop;
 
 @end

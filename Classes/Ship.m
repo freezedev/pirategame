@@ -8,25 +8,42 @@
 
 #import "Ship.h"
 
+#import "Assets.h"
+
 @implementation Ship
 
 -(id) init
 {
     if ((self = [super init])) {
-        _movingClip = [[SPMovieClip alloc] init];
-        _shootClip = [[SPMovieClip alloc] init];
+        NSArray *textures = [[Assets textureAtlas:@"ship_pirate_small_cannon.xml"] texturesStartingWith:@"00"];
+        
+        _shootingClip = [SPMovieClip movieWithFrames:textures fps:20.0f];
+        
+        if (_image == nil) {
+            _image = [[SPImage alloc] init];
+        }
+        
+        [self addChild:_shootingClip];
+        [self addChild:_image];
     }
     
     return self;
 }
 
--(void) shoot
+-(id) initWithContentsOfFile:(NSString *)filename
 {
-    [_shootClip play];
-    [Sparrow.juggler addObject:_shootClip];
+    _image = [[SPImage alloc] initWithTexture:[Assets texture:filename]];
+    
+    return [self init];
 }
 
--(void) moveTo:(int)x y:(int)y
+-(void) shoot
+{
+    [_shootingClip play];
+    [Sparrow.juggler addObject:_shootingClip];
+}
+
+-(void) moveToX:(float)x andY:(float)y
 {
     [self stop];
     
