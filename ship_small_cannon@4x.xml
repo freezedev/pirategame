@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:cad8f1e260d7127b26d7c6f61e34fb3f:0af47aa74ca5e538fac63da189c2b7ac:9e0a4549107632fbd952ab702bfc21e4$ -->
-<TextureAtlas imagePath="ship_pirate_small_cannon@4x.pvr.gz">
+<!-- $TexturePacker:SmartUpdate:35da35c4b48c12f976b34da2c685cd15:f76037068ccafaaa60322b61f827f9cf:429f70646f92efdc07c0f19d29781611$ -->
+<TextureAtlas imagePath="ship_small_cannon@4x.pvr.gz">
     <SubTexture name="e_0001" x="0" y="0" width="320" height="320"/>
     <SubTexture name="e_0003" x="320" y="0" width="320" height="320"/>
     <SubTexture name="e_0005" x="640" y="0" width="320" height="320"/>
