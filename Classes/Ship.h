@@ -8,12 +8,32 @@
 
 #import "SPSprite.h"
 
+typedef NS_ENUM(NSInteger, ShipDirection) {
+    DirectionNorth,
+    DirectionSouth,
+    DirectionWest,
+    DirectionEast,
+    DirectionNorthWest,
+    DirectionNorthEast,
+    DirectionSouthWest,
+    DirectionSouthEast
+};
+
+typedef NS_ENUM(NSInteger, ShipType) {
+    ShipPirate,
+    ShipNormal
+};
+
 @interface Ship : SPSprite {
-    SPMovieClip *_shootingClip;
-    SPImage *_image;
+    NSArray *_shootingClip;
+    ShipDirection _direction;
 }
 
--(id)initWithContentsOfFile:(NSString *)filename;
+@property int hitpoints;
+@property ShipType type;
+@property (nonatomic) ShipDirection direction;
+
+-(id)initWithType:(ShipType)type;
 
 -(void) shoot;
 
