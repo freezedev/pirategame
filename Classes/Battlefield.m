@@ -20,12 +20,16 @@
     }
 }
 
--(void) onShipStop:(SPTouchEvent*) event
+-(void) onShipTap:(SPTouchEvent*) event
 {
     SPTouch *touch = [[event touchesWithTarget:self andPhase:SPTouchPhaseBegan] anyObject];
     
     if (touch) {
-        [_pirateShip stop];
+        if (touch.tapCount == 1) {
+            [_pirateShip stop];
+        } else if (touch.tapCount == 2) {
+            [_pirateShip shoot];
+        }
     }
 }
 
@@ -36,12 +40,11 @@
         background.x = (Sparrow.stage.width - background.width) / 2;
         background.y = (Sparrow.stage.height - background.height) / 2;
         
-        _pirateShip = [[Ship alloc] initWithContentsOfFile:@"ship_pirate.png"];
+        _pirateShip = [[Ship alloc] initWithType:ShipPirate];
         _pirateShip.x = (Sparrow.stage.width - _pirateShip.width) / 2;
         _pirateShip.y = (Sparrow.stage.height - _pirateShip.height) / 2;
-
         
-        Ship *ship = [[Ship alloc] initWithContentsOfFile:@"ship.png"];
+        Ship *ship = [[Ship alloc] init];
         ship.x = 100;
         ship.y = 100;
         
@@ -54,7 +57,7 @@
         [Sparrow.juggler addObject:shipTween];
         
         [background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
-        [_pirateShip addEventListener:@selector(onShipStop:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        [_pirateShip addEventListener:@selector(onShipTap:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         
         [self addChild:background];
         [self addChild:ship];
