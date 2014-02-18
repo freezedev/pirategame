@@ -39,6 +39,7 @@
     if ((self = [super init])) {
         self.hitpoints = 100;
         self.type = type;
+        _isShooting = NO;
         
         SPTextureAtlas *atlas = (type == ShipPirate) ? [Assets textureAtlas:@"ship_pirate_small_cannon.xml"] : [Assets textureAtlas:@"ship_small_cannon.xml"] ;
         
@@ -64,10 +65,19 @@
         
         _shootingClip = [NSArray arrayWithObjects:clipNorth, clipSouth, clipWest, clipEast, clipNorthWest, clipNorthEast, clipSouthWest, clipSouthEast, nil];
 
+        self.cannonBallLeft = [SPImage imageWithTexture:[Assets texture:@"cannonball.png"]];
+        self.cannonBallRight = [SPImage imageWithTexture:[Assets texture:@"cannonball.png"]];
+        
         for (SPMovieClip* clip in _shootingClip) {
             clip.loop = NO;
             [self addChild:clip];
         }
+        
+        self.cannonBallLeft.visible = NO;
+        self.cannonBallRight.visible = NO;
+        
+        [self addChild:self.cannonBallLeft];
+        [self addChild:self.cannonBallRight];
         
         self.direction = DirectionSouthWest;
     }
@@ -77,16 +87,78 @@
 
 -(void) shoot
 {
+    if (_isShooting) {
+        return;
+    }
+    
+    _isShooting = YES;
+    
     for (SPMovieClip* clip in _shootingClip) {
         [Sparrow.juggler removeObjectsWithTarget:clip];
     }
     
-    [_shootingClip[self.direction] play];
-    [Sparrow.juggler addObject:_shootingClip[self.direction]];
+    [Sparrow.juggler removeObjectsWithTarget:self.cannonBallLeft];
+    [Sparrow.juggler removeObjectsWithTarget:self.cannonBallRight];
     
-    [_shootingClip[self.direction] addEventListenerForType:SP_EVENT_TYPE_COMPLETED block:^(SPEvent *event)
+    SPMovieClip *currentClip = _shootingClip[self.direction];
+    
+    [_shootingClip[self.direction] play];
+    [Sparrow.juggler addObject:currentClip];
+    
+    float shootingTime = 1.25f;
+    float innerBox = 25.0f;
+    float targetPos = 30.0f;
+    
+    SPTween *tweenCbLeftX = [SPTween tweenWithTarget:self.cannonBallLeft time:shootingTime];
+    SPTween *tweenCbLeftY = [SPTween tweenWithTarget:self.cannonBallLeft time:shootingTime];
+    SPTween *tweenCbRightX = [SPTween tweenWithTarget:self.cannonBallRight time:shootingTime];
+    SPTween *tweenCbRightY = [SPTween tweenWithTarget:self.cannonBallRight time:shootingTime];
+    
+    switch (self.direction) {
+        case DirectionNorth:
+        case DirectionSouth:
+            self.cannonBallLeft.x = (-self.cannonBallLeft.width / 2) + innerBox;
+            self.cannonBallLeft.y = (currentClip.height - self.cannonBallLeft.height) / 2;
+            
+            self.cannonBallRight.x = (-self.cannonBallRight.width / 2) + currentClip.width - innerBox;
+            self.cannonBallRight.y = (currentClip.height - self.cannonBallRight.height) / 2;
+            
+            [tweenCbLeftX animateProperty:@"x" targetValue:self.cannonBallLeft.x - targetPos];
+            [tweenCbRightX animateProperty:@"x" targetValue:self.cannonBallRight.x + targetPos];
+            
+            break;
+            
+        case DirectionEast:
+        case DirectionWest:
+            self.cannonBallLeft.y = (-self.cannonBallLeft.height / 2) + innerBox;
+            self.cannonBallLeft.x = (currentClip.width - self.cannonBallLeft.width) / 2;
+            
+            self.cannonBallRight.y = (-self.cannonBallRight.height / 2) + currentClip.height - innerBox;
+            self.cannonBallRight.x = (currentClip.width - self.cannonBallRight.width) / 2;
+            
+            [tweenCbLeftY animateProperty:@"y" targetValue:self.cannonBallLeft.y - targetPos];
+            [tweenCbRightY animateProperty:@"y" targetValue:self.cannonBallRight.y + targetPos];
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    self.cannonBallLeft.visible = YES;
+    self.cannonBallRight.visible = YES;
+    
+    [Sparrow.juggler addObject:tweenCbLeftX];
+    [Sparrow.juggler addObject:tweenCbLeftY];
+    [Sparrow.juggler addObject:tweenCbRightX];
+    [Sparrow.juggler addObject:tweenCbRightY];
+    
+    [currentClip addEventListenerForType:SP_EVENT_TYPE_COMPLETED block:^(SPEvent *event)
     {
         [_shootingClip[self.direction] stop];
+        _isShooting = NO;
+        self.cannonBallLeft.visible = NO;
+        self.cannonBallRight.visible = NO;
     }];
 }
 

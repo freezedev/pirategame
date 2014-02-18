@@ -27,11 +27,15 @@ typedef NS_ENUM(NSInteger, ShipType) {
 @interface Ship : SPSprite {
     NSArray *_shootingClip;
     ShipDirection _direction;
+    BOOL _isShooting;
 }
 
 @property int hitpoints;
 @property ShipType type;
 @property (nonatomic) ShipDirection direction;
+@property (readonly) BOOL isShooting;
+@property SPImage *cannonBallLeft;
+@property SPImage *cannonBallRight;
 
 -(id)initWithType:(ShipType)type;
 
