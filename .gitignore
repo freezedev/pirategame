@@ -53,3 +53,7 @@ __history
 *.bak
 *~
 *.old
+
+# Exceptions #
+##############
+!*.pvr.gz
