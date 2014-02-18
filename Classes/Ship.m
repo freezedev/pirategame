@@ -38,6 +38,7 @@
 {
     if ((self = [super init])) {
         self.hitpoints = 100;
+        self.type = type;
         
         SPTextureAtlas *atlas = (type == ShipPirate) ? [Assets textureAtlas:@"ship_pirate_small_cannon.xml"] : [Assets textureAtlas:@"ship_small_cannon.xml"] ;
         
