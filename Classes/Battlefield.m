@@ -33,6 +33,20 @@
     }
 }
 
+-(void) onEnterFrame:(SPEvent *)event
+{
+    SPRectangle *enemyShipBounds = [_enemyShip boundsInSpace:self];
+    SPRectangle *ball1 = [_pirateShip.cannonBallLeft boundsInSpace:self];
+    SPRectangle *ball2 = [_pirateShip.cannonBallRight boundsInSpace:self];
+    
+    if ([enemyShipBounds intersectsRectangle:ball1] || [enemyShipBounds intersectsRectangle:ball2]) {
+        if (_pirateShip.cannonBallLeft.visible || _pirateShip.cannonBallRight.visible) {
+            [_pirateShip abortShooting];
+            [_enemyShip hit];
+        }
+    }
+}
+
 -(id) init
 {
     if ((self = [super init])) {
@@ -44,11 +58,11 @@
         _pirateShip.x = (Sparrow.stage.width - _pirateShip.width) / 2;
         _pirateShip.y = (Sparrow.stage.height - _pirateShip.height) / 2;
         
-        Ship *ship = [[Ship alloc] init];
-        ship.x = 100;
-        ship.y = 100;
+        _enemyShip = [[Ship alloc] init];
+        _enemyShip.x = 100;
+        _enemyShip.y = 100;
         
-        SPTween *shipTween = [SPTween tweenWithTarget:ship time:4.0f transition:SP_TRANSITION_EASE_IN_OUT];
+        SPTween *shipTween = [SPTween tweenWithTarget:_enemyShip time:4.0f transition:SP_TRANSITION_EASE_IN_OUT];
         [shipTween animateProperty:@"y" targetValue:250];
         shipTween.repeatCount = 5;
         shipTween.reverse = YES;
@@ -59,8 +73,10 @@
         [background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_pirateShip addEventListener:@selector(onShipTap:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         
+        [self addEventListener:@selector(onEnterFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
+        
         [self addChild:background];
-        [self addChild:ship];
+        [self addChild:_enemyShip];
         [self addChild:_pirateShip];
     }
     

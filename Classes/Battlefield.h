@@ -11,6 +11,7 @@
 
 @interface Battlefield : Scene {
     Ship *_pirateShip;
+    Ship *_enemyShip;
 }
 
 @end
