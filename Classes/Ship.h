@@ -28,9 +28,10 @@ typedef NS_ENUM(NSInteger, ShipType) {
     NSArray *_shootingClip;
     ShipDirection _direction;
     BOOL _isShooting;
+    int _hitpoints;
 }
 
-@property int hitpoints;
+@property (nonatomic) int hitpoints;
 @property ShipType type;
 @property (nonatomic) ShipDirection direction;
 @property (readonly) BOOL isShooting;
@@ -40,6 +41,9 @@ typedef NS_ENUM(NSInteger, ShipType) {
 -(id)initWithType:(ShipType)type;
 
 -(void) shoot;
+-(void) abortShooting;
+
+-(void) hit;
 
 -(void) moveToX:(float) x andY:(float) y;
 -(void) stop;

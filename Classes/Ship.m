@@ -28,6 +28,19 @@
     return _direction;
 }
 
+-(void) setHitpoints:(int)hitpoints
+{
+    _hitpoints = hitpoints;
+    if (_hitpoints <= 0) {
+        self.visible = FALSE;
+    }
+}
+
+-(int) getHitpoints
+{
+    return _hitpoints;
+}
+
 
 -(id) init
 {
@@ -160,6 +173,31 @@
         self.cannonBallLeft.visible = NO;
         self.cannonBallRight.visible = NO;
     }];
+}
+
+-(void) abortShooting
+{
+    _isShooting = NO;
+    
+    [Sparrow.juggler removeObjectsWithTarget:self.cannonBallLeft];
+    [Sparrow.juggler removeObjectsWithTarget:self.cannonBallRight];
+    
+    self.cannonBallLeft.visible = NO;
+    self.cannonBallRight.visible = NO;
+}
+
+-(void) hit
+{
+    self.hitpoints = self.hitpoints - 25;
+    
+    for (SPMovieClip* clip in _shootingClip) {
+        SPTween *tween = [SPTween tweenWithTarget:clip time:0.3f];
+        tween.reverse = YES;
+        tween.repeatCount = 2;
+        
+        [tween animateProperty:@"color" targetValue:SP_RED];
+        [Sparrow.juggler addObject:tween];
+    }
 }
 
 -(void) moveToX:(float)x andY:(float)y
