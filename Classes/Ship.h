@@ -32,6 +32,8 @@ typedef NS_ENUM(NSInteger, ShipType) {
 }
 
 @property (nonatomic) int hitpoints;
+@property int maxHitpoints;
+
 @property ShipType type;
 @property (nonatomic) ShipDirection direction;
 @property (readonly) BOOL isShooting;
