@@ -1,0 +1,14 @@
+{
+    "hitpoints": 100,
+    "damage": 25,
+    "battlefield": {
+        "enemy": {
+            "x": 100,
+            "y": 100
+        },
+        "pirate": {
+            "x": 300,
+            "y": 100
+        }
+    }
+}
