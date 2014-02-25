@@ -60,6 +60,7 @@
 		3B60701F187B321C00A2AA0B /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B60701E187B321C00A2AA0B /* Scene.m */; };
 		3B607022187B337800A2AA0B /* SceneDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607021187B337800A2AA0B /* SceneDirector.m */; };
 		3B607025187B36A700A2AA0B /* Assets.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607024187B36A700A2AA0B /* Assets.m */; };
+		3B68E40D18BD38C5003599EF /* gameplay.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B68E40C18BD38C5003599EF /* gameplay.json */; };
 		3B950FB31877689100BBDD18 /* AssetsDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B950FB21877689100BBDD18 /* AssetsDictionary.m */; };
 		DE3F093811B7B9DC009D4DB0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */; };
 		DE3F093A11B7B9DC009D4DB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */; };
@@ -166,6 +167,7 @@
 		3B607021187B337800A2AA0B /* SceneDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDirector.m; sourceTree = "<group>"; };
 		3B607023187B36A700A2AA0B /* Assets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assets.h; sourceTree = "<group>"; };
 		3B607024187B36A700A2AA0B /* Assets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assets.m; sourceTree = "<group>"; };
+		3B68E40C18BD38C5003599EF /* gameplay.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gameplay.json; sourceTree = "<group>"; };
 		3B847FE818665EEA00678F84 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		3B950FB11877689100BBDD18 /* AssetsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsDictionary.h; sourceTree = "<group>"; };
 		3B950FB21877689100BBDD18 /* AssetsDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsDictionary.m; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3B607018187B161E00A2AA0B /* example.json */,
 				3B34F70518B3E1B60090BD19 /* ship_small_cannon.pvr.gz */,
 				3B34F70618B3E1B60090BD19 /* ship_small_cannon.xml */,
 				3B34F70718B3E1B60090BD19 /* ship_small_cannon@2x.pvr.gz */,
@@ -295,8 +298,8 @@
 				DE91027D16244F0C001FD950 /* Default.png */,
 				DE91027F16244F74001FD950 /* Default@2x.png */,
 				DE91027B16244E60001FD950 /* Default-568h@2x.png */,
-				3B607018187B161E00A2AA0B /* example.json */,
 				3B60701A187B1F0D00A2AA0B /* example.txt */,
+				3B68E40C18BD38C5003599EF /* gameplay.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				3B13CF9B188DC52800C93909 /* weaponsmith@4x.png in Resources */,
 				3B13CF8E188DC52800C93909 /* ship_pirate@2x.png in Resources */,
 				3B34F71018B3E1B60090BD19 /* ship_small_cannon@4x.xml in Resources */,
+				3B68E40D18BD38C5003599EF /* gameplay.json in Resources */,
 				3B13CF94188DC52800C93909 /* tavern@2x.png in Resources */,
 				3B13CF9A188DC52800C93909 /* weaponsmith@2x.png in Resources */,
 				3B34F70318B3E18C0090BD19 /* cannonball@2x.png in Resources */,
