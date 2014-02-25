@@ -50,7 +50,9 @@
 -(id) initWithType:(ShipType)type
 {
     if ((self = [super init])) {
-        self.hitpoints = 100;
+        self.maxHitpoints = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"hitpoints"] intValue];
+        
+        self.hitpoints = self.maxHitpoints;
         self.type = type;
         _isShooting = NO;
         
@@ -188,7 +190,7 @@
 
 -(void) hit
 {
-    self.hitpoints = self.hitpoints - 25;
+    self.hitpoints = self.hitpoints - [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"damage"] intValue];
     
     for (SPMovieClip* clip in _shootingClip) {
         SPTween *tween = [SPTween tweenWithTarget:clip time:0.3f];
