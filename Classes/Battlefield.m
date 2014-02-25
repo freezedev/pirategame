@@ -55,12 +55,12 @@
         background.y = (Sparrow.stage.height - background.height) / 2;
         
         _pirateShip = [[Ship alloc] initWithType:ShipPirate];
-        _pirateShip.x = (Sparrow.stage.width - _pirateShip.width) / 2;
-        _pirateShip.y = (Sparrow.stage.height - _pirateShip.height) / 2;
+        _pirateShip.x = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"pirate"][@"x"] floatValue];
+        _pirateShip.y = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"pirate"][@"y"] floatValue];
         
         _enemyShip = [[Ship alloc] init];
-        _enemyShip.x = 100;
-        _enemyShip.y = 100;
+        _enemyShip.x = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"enemy"][@"x"] floatValue];
+        _enemyShip.y = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"enemy"][@"y"] floatValue];
         
         SPTween *shipTween = [SPTween tweenWithTarget:_enemyShip time:4.0f transition:SP_TRANSITION_EASE_IN_OUT];
         [shipTween animateProperty:@"y" targetValue:250];
