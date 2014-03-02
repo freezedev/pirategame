@@ -31,6 +31,9 @@
 -(void) setHitpoints:(int)hitpoints
 {
     _hitpoints = hitpoints;
+    
+    _quadHitpoints.scaleX = (float) _hitpoints / self.maxHitpoints;
+    
     if (_hitpoints <= 0) {
         self.visible = FALSE;
     }
@@ -83,6 +86,15 @@
         self.cannonBallLeft = [SPImage imageWithTexture:[Assets texture:@"cannonball.png"]];
         self.cannonBallRight = [SPImage imageWithTexture:[Assets texture:@"cannonball.png"]];
         
+        SPQuad *hitpointsBorder = [SPQuad quadWithWidth:clipNorth.width height:5.0f color:SP_BLACK];
+        SPQuad *quadMaxHitpoints = [SPQuad quadWithWidth:hitpointsBorder.width - 2.0f height:3.0f color:SP_COLOR(200, 0, 0)];
+        quadMaxHitpoints.x = 1.0f;
+        quadMaxHitpoints.y = 1.0f;
+        
+        _quadHitpoints = [SPQuad quadWithWidth:hitpointsBorder.width - 2.0f height:3.0f color:SP_COLOR(0, 180, 0)];
+        _quadHitpoints.x = quadMaxHitpoints.x;
+        _quadHitpoints.y = quadMaxHitpoints.y;
+        
         for (SPMovieClip* clip in _shootingClip) {
             clip.loop = NO;
             [self addChild:clip];
@@ -93,6 +105,10 @@
         
         [self addChild:self.cannonBallLeft];
         [self addChild:self.cannonBallRight];
+        
+        [self addChild:hitpointsBorder];
+        [self addChild:quadMaxHitpoints];
+        [self addChild:_quadHitpoints];
         
         self.direction = DirectionSouthWest;
     }
