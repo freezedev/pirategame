@@ -29,6 +29,8 @@ typedef NS_ENUM(NSInteger, ShipType) {
     ShipDirection _direction;
     BOOL _isShooting;
     int _hitpoints;
+    
+    SPQuad *_quadHitpoints;
 }
 
 @property (nonatomic) int hitpoints;
