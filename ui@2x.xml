@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:d65201720a6690bc8a44be55173ca6cd:a746750f10064debd3c019f908e4b8c4:64057f92503798cbb9c96f5303c64634$ -->
+<TextureAtlas imagePath="ui@2x.pvr.gz">
+    <SubTexture name="button_abort@4x" x="0" y="0" width="64" height="64"/>
+    <SubTexture name="button_pause@4x" x="64" y="0" width="64" height="64"/>
+    <SubTexture name="button_play@4x" x="128" y="0" width="64" height="64"/>
+    <SubTexture name="dialog@4x" x="192" y="0" width="720" height="480"/>
+    <SubTexture name="dialog_no@4x" x="0" y="480" width="320" height="90"/>
+    <SubTexture name="dialog_yes@4x" x="320" y="480" width="320" height="90"/>
+</TextureAtlas>
