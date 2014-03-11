@@ -33,6 +33,16 @@
     }
 }
 
+-(void) onButtonPause:(SPTouchEvent *)event
+{
+
+}
+
+-(void) onButtonResume:(SPTouchEvent *)event
+{
+
+}
+
 -(void) onEnterFrame:(SPEvent *)event
 {
     SPRectangle *enemyShipBounds = [_enemyShip boundsInSpace:self];
@@ -68,6 +78,21 @@
         shipTween.reverse = YES;
         shipTween.delay = 2.0f;
         
+        
+        SPButton *buttonPause = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"button_pause@4x"]];
+        SPButton *buttonResume = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"button_play@4x"]];
+        
+        buttonPause.x = Sparrow.stage.width - buttonPause.width - 4.0f;
+        buttonPause.y = 4.0f;
+        
+        buttonResume.x = buttonPause.x;
+        buttonResume.y = buttonPause.y;
+        
+        buttonResume.visible = NO;
+        
+        [buttonPause addEventListener:@selector(onButtonPause:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        [buttonResume addEventListener:@selector(onButtonResume:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        
         [Sparrow.juggler addObject:shipTween];
         
         [background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
@@ -78,6 +103,9 @@
         [self addChild:background];
         [self addChild:_enemyShip];
         [self addChild:_pirateShip];
+        
+        [self addChild:buttonPause];
+        [self addChild:buttonResume];
     }
     
     return self;
