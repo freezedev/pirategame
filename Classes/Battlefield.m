@@ -11,6 +11,25 @@
 
 @implementation Battlefield
 
+-(void) setPaused:(BOOL)paused
+{
+    _paused = paused;
+    
+    _buttonResume.visible = _paused;
+    _buttonPause.visible = !_paused;
+    
+    _background.touchable = !_paused;
+    
+    _pirateShip.paused = _paused;
+    _enemyShip.paused = _paused;
+}
+
+-(BOOL) getPaused
+{
+    return _paused;
+}
+
+
 -(void) onBackgroundTouch:(SPTouchEvent*) event
 {
     SPTouch *touch = [[event touchesWithTarget:self] anyObject];
@@ -35,27 +54,15 @@
 
 -(void) onButtonPause:(SPTouchEvent *)event
 {
-    _buttonResume.visible = YES;
-    _buttonPause.visible = NO;
-    
-    _background.touchable = NO;
-    
-    _pirateShip.paused = YES;
-    _enemyShip.paused = YES;
+    self.paused = YES;
 }
 
 -(void) onButtonResume:(SPTouchEvent *)event
 {
-    _buttonResume.visible = NO;
-    _buttonPause.visible = YES;
-    
-    _background.touchable = YES;
-    
-    _pirateShip.paused = NO;
-    _enemyShip.paused = NO;
+    self.paused = NO;
 }
 
--(void) onEnterFrame:(SPEvent *)event
+-(void) onEnterFrame:(SPEnterFrameEvent *)event
 {
     SPRectangle *enemyShipBounds = [_enemyShip boundsInSpace:self];
     SPRectangle *ball1 = [_pirateShip.cannonBallLeft boundsInSpace:self];
@@ -67,11 +74,22 @@
             [_enemyShip hit];
         }
     }
+    
+    double passedTime = event.passedTime;
+    
+    [_enemyShip advanceTime:passedTime];
+    [_pirateShip advanceTime:passedTime];
+    
+    if (!self.paused) {
+        [_juggler advanceTime:passedTime];
+    }
 }
 
 -(id) init
 {
     if ((self = [super init])) {
+        self.paused = NO;
+        
         _background = [SPImage imageWithTexture:[Assets texture:@"water.png"]];
         _background.x = (Sparrow.stage.width - _background.width) / 2;
         _background.y = (Sparrow.stage.height - _background.height) / 2;
@@ -105,7 +123,9 @@
         [_buttonPause addEventListener:@selector(onButtonPause:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_buttonResume addEventListener:@selector(onButtonResume:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         
-        [Sparrow.juggler addObject:shipTween];
+        _juggler = [SPJuggler juggler];
+        
+        [_juggler addObject:shipTween];
         
         [_background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_pirateShip addEventListener:@selector(onShipTap:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
@@ -118,14 +138,6 @@
         
         [self addChild:_buttonPause];
         [self addChild:_buttonResume];
-        
-        [SPTextField registerBitmapFontFromFile:@"PirateFont.fnt"];
-        
-        SPTextField *textField = [SPTextField textFieldWithWidth:300.0f height:150.0f text:@"Hello, is it me youre looking for?"];
-        textField.color = SP_WHITE;
-        textField.fontName = @"PirateFont";
-        
-        [self addChild:textField];
     }
     
     return self;

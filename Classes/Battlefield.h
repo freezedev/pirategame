@@ -17,6 +17,12 @@
     
     SPButton *_buttonPause;
     SPButton *_buttonResume;
+    
+    SPJuggler *_juggler;
+    
+    BOOL _paused;
 }
+
+@property (nonatomic) BOOL paused;
 
 @end

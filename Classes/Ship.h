@@ -55,4 +55,6 @@ typedef NS_ENUM(NSInteger, ShipType) {
 -(void) moveToX:(float) x andY:(float) y;
 -(void) stop;
 
+-(void) advanceTime:(double)seconds;
+
 @end
