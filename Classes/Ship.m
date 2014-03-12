@@ -58,6 +58,7 @@
         self.hitpoints = self.maxHitpoints;
         self.type = type;
         _isShooting = NO;
+        self.paused = NO;
         
         SPTextureAtlas *atlas = (type == ShipPirate) ? [Assets textureAtlas:@"ship_pirate_small_cannon.xml"] : [Assets textureAtlas:@"ship_small_cannon.xml"] ;
         
@@ -103,6 +104,8 @@
         self.cannonBallLeft.visible = NO;
         self.cannonBallRight.visible = NO;
         
+        _juggler = [SPJuggler juggler];
+        
         [self addChild:self.cannonBallLeft];
         [self addChild:self.cannonBallRight];
         
@@ -116,6 +119,13 @@
     return self;
 }
 
+-(void) advanceTime:(double)seconds
+{
+    if (!self.paused) {
+        [_juggler advanceTime:seconds];
+    }
+}
+
 -(void) shoot
 {
     if (_isShooting) {
@@ -125,16 +135,16 @@
     _isShooting = YES;
     
     for (SPMovieClip* clip in _shootingClip) {
-        [Sparrow.juggler removeObjectsWithTarget:clip];
+        [_juggler removeObjectsWithTarget:clip];
     }
     
-    [Sparrow.juggler removeObjectsWithTarget:self.cannonBallLeft];
-    [Sparrow.juggler removeObjectsWithTarget:self.cannonBallRight];
+    [_juggler removeObjectsWithTarget:self.cannonBallLeft];
+    [_juggler removeObjectsWithTarget:self.cannonBallRight];
     
     SPMovieClip *currentClip = _shootingClip[self.direction];
     
     [_shootingClip[self.direction] play];
-    [Sparrow.juggler addObject:currentClip];
+    [_juggler addObject:currentClip];
     
     float shootingTime = 1.25f;
     float innerBox = 25.0f;
@@ -179,10 +189,10 @@
     self.cannonBallLeft.visible = YES;
     self.cannonBallRight.visible = YES;
     
-    [Sparrow.juggler addObject:tweenCbLeftX];
-    [Sparrow.juggler addObject:tweenCbLeftY];
-    [Sparrow.juggler addObject:tweenCbRightX];
-    [Sparrow.juggler addObject:tweenCbRightY];
+    [_juggler addObject:tweenCbLeftX];
+    [_juggler addObject:tweenCbLeftY];
+    [_juggler addObject:tweenCbRightX];
+    [_juggler addObject:tweenCbRightY];
     
     [currentClip addEventListenerForType:SP_EVENT_TYPE_COMPLETED block:^(SPEvent *event)
     {
@@ -197,8 +207,8 @@
 {
     _isShooting = NO;
     
-    [Sparrow.juggler removeObjectsWithTarget:self.cannonBallLeft];
-    [Sparrow.juggler removeObjectsWithTarget:self.cannonBallRight];
+    [_juggler removeObjectsWithTarget:self.cannonBallLeft];
+    [_juggler removeObjectsWithTarget:self.cannonBallRight];
     
     self.cannonBallLeft.visible = NO;
     self.cannonBallRight.visible = NO;
@@ -214,7 +224,7 @@
         tween.repeatCount = 2;
         
         [tween animateProperty:@"color" targetValue:SP_RED];
-        [Sparrow.juggler addObject:tween];
+        [_juggler addObject:tween];
     }
 }
 
@@ -285,13 +295,13 @@
     [tweenX animateProperty:@"x" targetValue:targetX];
     [tweenY animateProperty:@"y" targetValue:targetY];
     
-    [Sparrow.juggler addObject:tweenX];
-    [Sparrow.juggler addObject:tweenY];
+    [_juggler addObject:tweenX];
+    [_juggler addObject:tweenY];
 }
 
 -(void) stop
 {
-    [Sparrow.juggler removeObjectsWithTarget:self];
+    [_juggler removeObjectsWithTarget:self];
 }
 
 @end
