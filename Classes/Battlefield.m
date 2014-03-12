@@ -8,6 +8,7 @@
 
 #import "Battlefield.h"
 #import "Assets.h"
+#import "Dialog.h"
 
 #import "SceneDirector.h"
 
@@ -128,9 +129,18 @@
         
         [_buttonPause addEventListener:@selector(onButtonPause:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_buttonResume addEventListener:@selector(onButtonResume:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        
+        Dialog *dialog = [[Dialog alloc] init];
+        
+        dialog.x = (Sparrow.stage.width - dialog.width) / 2;
+        dialog.y = (Sparrow.stage.height - dialog.height) / 2;
+        
+        dialog.visible = NO;
+        
         [buttonAbort addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPEvent *event)
         {
-            [((SceneDirector *) self.director) showScene:@"piratecove"];
+            dialog.visible = YES;
+            //[((SceneDirector *) self.director) showScene:@"piratecove"];
         }];
 
         
@@ -150,6 +160,8 @@
         [self addChild:_buttonPause];
         [self addChild:_buttonResume];
         [self addChild:buttonAbort];
+        
+        [self addChild:dialog];
     }
     
     return self;
