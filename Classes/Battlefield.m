@@ -35,12 +35,24 @@
 
 -(void) onButtonPause:(SPTouchEvent *)event
 {
-
+    _buttonResume.visible = YES;
+    _buttonPause.visible = NO;
+    
+    _background.touchable = NO;
+    
+    _pirateShip.paused = YES;
+    _enemyShip.paused = YES;
 }
 
 -(void) onButtonResume:(SPTouchEvent *)event
 {
-
+    _buttonResume.visible = NO;
+    _buttonPause.visible = YES;
+    
+    _background.touchable = YES;
+    
+    _pirateShip.paused = NO;
+    _enemyShip.paused = NO;
 }
 
 -(void) onEnterFrame:(SPEvent *)event
@@ -60,9 +72,9 @@
 -(id) init
 {
     if ((self = [super init])) {
-        SPImage *background = [SPImage imageWithTexture:[Assets texture:@"water.png"]];
-        background.x = (Sparrow.stage.width - background.width) / 2;
-        background.y = (Sparrow.stage.height - background.height) / 2;
+        _background = [SPImage imageWithTexture:[Assets texture:@"water.png"]];
+        _background.x = (Sparrow.stage.width - _background.width) / 2;
+        _background.y = (Sparrow.stage.height - _background.height) / 2;
         
         _pirateShip = [[Ship alloc] initWithType:ShipPirate];
         _pirateShip.x = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"pirate"][@"x"] floatValue];
@@ -79,33 +91,41 @@
         shipTween.delay = 2.0f;
         
         
-        SPButton *buttonPause = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"button_pause@4x"]];
-        SPButton *buttonResume = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"button_play@4x"]];
+        _buttonPause = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"button_pause"]];
+        _buttonResume = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"button_play"]];
         
-        buttonPause.x = Sparrow.stage.width - buttonPause.width - 4.0f;
-        buttonPause.y = 4.0f;
+        _buttonPause.x = Sparrow.stage.width - _buttonPause.width - 4.0f;
+        _buttonPause.y = 4.0f;
         
-        buttonResume.x = buttonPause.x;
-        buttonResume.y = buttonPause.y;
+        _buttonResume.x = _buttonPause.x;
+        _buttonResume.y = _buttonPause.y;
         
-        buttonResume.visible = NO;
+        _buttonResume.visible = NO;
         
-        [buttonPause addEventListener:@selector(onButtonPause:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
-        [buttonResume addEventListener:@selector(onButtonResume:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        [_buttonPause addEventListener:@selector(onButtonPause:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        [_buttonResume addEventListener:@selector(onButtonResume:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         
         [Sparrow.juggler addObject:shipTween];
         
-        [background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        [_background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_pirateShip addEventListener:@selector(onShipTap:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         
         [self addEventListener:@selector(onEnterFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
         
-        [self addChild:background];
+        [self addChild:_background];
         [self addChild:_enemyShip];
         [self addChild:_pirateShip];
         
-        [self addChild:buttonPause];
-        [self addChild:buttonResume];
+        [self addChild:_buttonPause];
+        [self addChild:_buttonResume];
+        
+        [SPTextField registerBitmapFontFromFile:@"PirateFont.fnt"];
+        
+        SPTextField *textField = [SPTextField textFieldWithWidth:300.0f height:150.0f text:@"Hello, is it me youre looking for?"];
+        textField.color = SP_WHITE;
+        textField.fontName = @"PirateFont";
+        
+        [self addChild:textField];
     }
     
     return self;

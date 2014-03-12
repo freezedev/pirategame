@@ -12,6 +12,11 @@
 @interface Battlefield : Scene {
     Ship *_pirateShip;
     Ship *_enemyShip;
+    
+    SPImage *_background;
+    
+    SPButton *_buttonPause;
+    SPButton *_buttonResume;
 }
 
 @end
