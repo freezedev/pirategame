@@ -9,6 +9,8 @@
 #import "Battlefield.h"
 #import "Assets.h"
 
+#import "SceneDirector.h"
+
 @implementation Battlefield
 
 -(void) setPaused:(BOOL)paused
@@ -120,8 +122,17 @@
         
         _buttonResume.visible = NO;
         
+        SPButton *buttonAbort = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"button_abort"]];
+        buttonAbort.x = Sparrow.stage.width - buttonAbort.width - 4.0f;
+        buttonAbort.y = Sparrow.stage.height - buttonAbort.height - 4.0f;
+        
         [_buttonPause addEventListener:@selector(onButtonPause:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_buttonResume addEventListener:@selector(onButtonResume:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        [buttonAbort addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPEvent *event)
+        {
+            [((SceneDirector *) self.director) showScene:@"piratecove"];
+        }];
+
         
         _juggler = [SPJuggler juggler];
         
@@ -138,6 +149,7 @@
         
         [self addChild:_buttonPause];
         [self addChild:_buttonResume];
+        [self addChild:buttonAbort];
     }
     
     return self;
