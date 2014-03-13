@@ -26,6 +26,10 @@
         buttonNo.x = buttonYes.x + buttonYes.width - 20.0f;
         buttonNo.y = buttonYes.y;
         
+        _content = [SPTextField textFieldWithWidth:background.width - 48.0f height:background.height - 150.0f text:@"Dialog default text"];
+        _content.x = 24.0f;
+        _content.y = 50.0f;
+        
         [buttonYes addEventListener:@selector(onButtonYes:) atObject:self
                             forType:SP_EVENT_TYPE_TRIGGERED];
         
@@ -35,6 +39,7 @@
         [self addChild:background];
         [self addChild:buttonYes];
         [self addChild:buttonNo];
+        [self addChild:_content];
     }
     
     return self;
