@@ -16,5 +16,6 @@
 }
 
 @property SPTextField *content;
+@property SPTextField *title;
 
 @end

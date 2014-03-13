@@ -142,6 +142,7 @@
         
         _dialogAbort = [[Dialog alloc] init];
         
+        _dialogAbort.title.text = @"Abort this fight?";
         _dialogAbort.content.text = @"Would you like to abort the current fight?";
         
         _dialogAbort.x = (Sparrow.stage.width - _dialogAbort.width) / 2;

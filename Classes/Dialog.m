@@ -30,6 +30,17 @@
         _content.x = 24.0f;
         _content.y = 50.0f;
         
+        
+        
+        [SPTextField registerBitmapFontFromFile:@"PirateFont.fnt"];
+        
+        _title = [SPTextField textFieldWithWidth:background.width * 0.6 height:30.0f text:@"Dialog"];
+        _title.fontName = @"PirateFont";
+        _title.color = SP_WHITE;
+        
+        _title.x = 24.0f;
+        _title.y = 26.0f;
+        
         [buttonYes addEventListener:@selector(onButtonYes:) atObject:self
                             forType:SP_EVENT_TYPE_TRIGGERED];
         
@@ -40,6 +51,7 @@
         [self addChild:buttonYes];
         [self addChild:buttonNo];
         [self addChild:_content];
+        [self addChild:_title];
     }
     
     return self;
