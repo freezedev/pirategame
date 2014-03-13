@@ -8,7 +8,6 @@
 
 #import "Battlefield.h"
 #import "Assets.h"
-#import "Dialog.h"
 
 #import "SceneDirector.h"
 
@@ -88,6 +87,17 @@
     }
 }
 
+-(void) onDialogAbortYes:(SPEvent *)event
+{
+    [((SceneDirector *) self.director) showScene:@"piratecove"];
+}
+
+-(void) onDialogAbortNo:(SPEvent *)event
+{
+    self.paused = NO;
+    _dialogAbort.visible = NO;
+}
+
 -(id) init
 {
     if ((self = [super init])) {
@@ -130,17 +140,20 @@
         [_buttonPause addEventListener:@selector(onButtonPause:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_buttonResume addEventListener:@selector(onButtonResume:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         
-        Dialog *dialog = [[Dialog alloc] init];
+        _dialogAbort = [[Dialog alloc] init];
         
-        dialog.x = (Sparrow.stage.width - dialog.width) / 2;
-        dialog.y = (Sparrow.stage.height - dialog.height) / 2;
+        _dialogAbort.x = (Sparrow.stage.width - _dialogAbort.width) / 2;
+        _dialogAbort.y = (Sparrow.stage.height - _dialogAbort.height) / 2;
         
-        dialog.visible = NO;
+        _dialogAbort.visible = NO;
+        
+        [_dialogAbort addEventListener:@selector(onDialogAbortYes:) atObject:self forType:EVENT_TYPE_YES_TRIGGERED];
+        [_dialogAbort addEventListener:@selector(onDialogAbortNo:) atObject:self forType:EVENT_TYPE_NO_TRIGGERED];
         
         [buttonAbort addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPEvent *event)
         {
-            dialog.visible = YES;
-            //[((SceneDirector *) self.director) showScene:@"piratecove"];
+            self.paused = YES;
+            _dialogAbort.visible = YES;
         }];
 
         
@@ -161,7 +174,7 @@
         [self addChild:_buttonResume];
         [self addChild:buttonAbort];
         
-        [self addChild:dialog];
+        [self addChild:_dialogAbort];
     }
     
     return self;

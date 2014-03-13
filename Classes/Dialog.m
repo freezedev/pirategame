@@ -26,12 +26,30 @@
         buttonNo.x = buttonYes.x + buttonYes.width - 20.0f;
         buttonNo.y = buttonYes.y;
         
+        [buttonYes addEventListener:@selector(onButtonYes:) atObject:self
+                            forType:SP_EVENT_TYPE_TRIGGERED];
+        
+        [buttonNo addEventListener:@selector(onButtonNo:) atObject:self
+                           forType:SP_EVENT_TYPE_TRIGGERED];
+        
         [self addChild:background];
         [self addChild:buttonYes];
         [self addChild:buttonNo];
     }
     
     return self;
+}
+
+- (void)onButtonYes:(SPEvent *)event
+{
+    SPEvent *localEvent = [SPEvent eventWithType:EVENT_TYPE_YES_TRIGGERED];
+    [self dispatchEvent:localEvent];
+}
+
+- (void)onButtonNo:(SPEvent *)event
+{
+    SPEvent *localEvent = [SPEvent eventWithType:EVENT_TYPE_NO_TRIGGERED];
+    [self dispatchEvent:localEvent];
 }
 
 @end
