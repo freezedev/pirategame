@@ -64,18 +64,24 @@
     self.paused = NO;
 }
 
--(void) onEnterFrame:(SPEnterFrameEvent *)event
+-(void) checkShipCollision: (Ship *) ship1 againstShip: (Ship *) ship2
 {
-    SPRectangle *enemyShipBounds = [_enemyShip boundsInSpace:self];
-    SPRectangle *ball1 = [_pirateShip.cannonBallLeft boundsInSpace:self];
-    SPRectangle *ball2 = [_pirateShip.cannonBallRight boundsInSpace:self];
+    SPRectangle *enemyShipBounds = [ship1 boundsInSpace:self];
+    SPRectangle *ball1 = [ship2.cannonBallLeft boundsInSpace:self];
+    SPRectangle *ball2 = [ship2.cannonBallRight boundsInSpace:self];
     
     if ([enemyShipBounds intersectsRectangle:ball1] || [enemyShipBounds intersectsRectangle:ball2]) {
-        if (_pirateShip.cannonBallLeft.visible || _pirateShip.cannonBallRight.visible) {
-            [_pirateShip abortShooting];
-            [_enemyShip hit];
+        if (ship2.cannonBallLeft.visible || ship2.cannonBallRight.visible) {
+            [ship2 abortShooting];
+            [ship1 hit];
         }
     }
+}
+
+-(void) onEnterFrame:(SPEnterFrameEvent *)event
+{
+    [self checkShipCollision:_pirateShip againstShip:_enemyShip];
+    [self checkShipCollision:_enemyShip againstShip:_pirateShip];
     
     double passedTime = event.passedTime;
     
@@ -113,8 +119,13 @@
             NSDictionary *rndPos = [self randomPos];
             [ship moveToX:[rndPos[@"x"] floatValue] andY:[rndPos[@"y"] floatValue] withBlock:^{
                 if ([ship checkDistanceToShip:_pirateShip] < 200.0f) {
-                    //In sight
-                    [self updateAI:ship withState:StateMoveToPlayer];
+                    if ([ship checkDistanceToShip:_pirateShip] < 100.0f) {
+                        // Attack directly
+                        [self updateAI:ship withState:StateAttack];
+                    } else {
+                        //In sight
+                        [self updateAI:ship withState:StateMoveToPlayer];
+                    }
                 } else {
                     //Not in sight
                     [self updateAI:ship withState:aiState];
@@ -134,6 +145,16 @@
             }];
         }
             break;
+        case StateAttack: {
+            [ship shootWithBlock:^{
+                [self updateAI:ship withState:StateRecuperate];
+            }];
+        }
+        case StateRecuperate: {
+            [ship.juggler delayInvocationByTime:0.3f block:^{
+                [self updateAI:ship withState:StateWanderAround];
+            }];
+        }
         default:
             break;
     }

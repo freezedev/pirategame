@@ -126,7 +126,7 @@
     }
 }
 
--(void) shoot
+-(void) shootWithBlock:(ShipCallback)block
 {
     if (_isShooting) {
         return;
@@ -195,11 +195,21 @@
     [_juggler addObject:tweenCbRightY];
     
     [currentClip addEventListenerForType:SP_EVENT_TYPE_COMPLETED block:^(SPEvent *event)
+     {
+         [_shootingClip[self.direction] stop];
+         _isShooting = NO;
+         self.cannonBallLeft.visible = NO;
+         self.cannonBallRight.visible = NO;
+         
+         [block invoke];
+     }];
+}
+
+-(void) shoot
+{
+    [self shootWithBlock:^
     {
-        [_shootingClip[self.direction] stop];
-        _isShooting = NO;
-        self.cannonBallLeft.visible = NO;
-        self.cannonBallRight.visible = NO;
+        
     }];
 }
 

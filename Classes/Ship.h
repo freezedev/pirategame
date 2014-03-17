@@ -33,8 +33,6 @@ typedef NS_ENUM(NSInteger, ShipType) {
     int _hitpoints;
     
     SPQuad *_quadHitpoints;
-    
-    SPJuggler *_juggler;
 }
 
 @property (nonatomic) int hitpoints;
@@ -47,9 +45,13 @@ typedef NS_ENUM(NSInteger, ShipType) {
 @property SPImage *cannonBallLeft;
 @property SPImage *cannonBallRight;
 
+@property SPJuggler *juggler;
+
 -(id)initWithType:(ShipType)type;
 
 -(void) shoot;
+-(void) shootWithBlock:(ShipCallback) block;
+
 -(void) abortShooting;
 
 -(void) hit;
