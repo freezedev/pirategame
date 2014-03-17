@@ -98,10 +98,52 @@
     _dialogAbort.visible = NO;
 }
 
+-(NSDictionary *) randomPos
+{
+    return @{
+        @"x": [NSNumber numberWithFloat:((arc4random() % (int) (Sparrow.stage.width - 80.0f)) + 40.0f)],
+        @"y": [NSNumber numberWithFloat:((arc4random() % (int) (Sparrow.stage.height - 80.0f)) + 40.0f)]
+    };
+}
+
+-(void) updateAI: (Ship *)ship withState: (AIState) aiState
+{
+    switch (aiState) {
+        case StateWanderAround: {
+            NSDictionary *rndPos = [self randomPos];
+            [ship moveToX:[rndPos[@"x"] floatValue] andY:[rndPos[@"y"] floatValue] withBlock:^{
+                if ([ship checkDistanceToShip:_pirateShip] < 200.0f) {
+                    //In sight
+                    [self updateAI:ship withState:StateMoveToPlayer];
+                } else {
+                    //Not in sight
+                    [self updateAI:ship withState:aiState];
+                }
+            }];
+        }
+            break;
+        case StateMoveToPlayer: {
+            [ship moveToShip:_pirateShip WithBlock:^{
+                if ([ship checkDistanceToShip:_pirateShip] < 100.0f) {
+                    // Attack
+                    [self updateAI:ship withState:StateAttack];
+                } else {
+                    //Not in sight
+                    [self updateAI:ship withState:StateWanderAround];
+                }
+            }];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 -(id) init
 {
     if ((self = [super init])) {
         self.paused = NO;
+        _aiState = StateWanderAround;
         
         _background = [SPImage imageWithTexture:[Assets texture:@"water.png"]];
         _background.x = (Sparrow.stage.width - _background.width) / 2;
@@ -114,13 +156,6 @@
         _enemyShip = [[Ship alloc] init];
         _enemyShip.x = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"enemy"][@"x"] floatValue];
         _enemyShip.y = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"enemy"][@"y"] floatValue];
-        
-        SPTween *shipTween = [SPTween tweenWithTarget:_enemyShip time:4.0f transition:SP_TRANSITION_EASE_IN_OUT];
-        [shipTween animateProperty:@"y" targetValue:250];
-        shipTween.repeatCount = 5;
-        shipTween.reverse = YES;
-        shipTween.delay = 2.0f;
-        
         
         _buttonPause = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"button_pause"]];
         _buttonResume = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"button_play"]];
@@ -158,11 +193,10 @@
             self.paused = YES;
             _dialogAbort.visible = YES;
         }];
-
         
-        _juggler = [SPJuggler juggler];
         
-        [_juggler addObject:shipTween];
+        [self updateAI:_enemyShip withState:_aiState];
+        
         
         [_background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_pirateShip addEventListener:@selector(onShipTap:) atObject:self forType:SP_EVENT_TYPE_TOUCH];

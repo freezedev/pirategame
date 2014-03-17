@@ -8,6 +8,8 @@
 
 #import "SPSprite.h"
 
+typedef void(^ShipCallback)(void);
+
 typedef NS_ENUM(NSInteger, ShipDirection) {
     DirectionNorth,
     DirectionSouth,
@@ -52,9 +54,13 @@ typedef NS_ENUM(NSInteger, ShipType) {
 
 -(void) hit;
 
+-(void) moveToX:(float)x andY:(float)y withBlock:(ShipCallback) block;
 -(void) moveToX:(float) x andY:(float) y;
 -(void) stop;
 
 -(void) advanceTime:(double)seconds;
+
+-(float) checkDistanceToShip:(Ship *)ship;
+-(void) moveToShip:(Ship *)ship WithBlock:(ShipCallback) block;
 
 @end

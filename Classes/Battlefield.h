@@ -10,6 +10,13 @@
 #import "Ship.h"
 #import "Dialog.h"
 
+typedef NS_ENUM(NSInteger, AIState) {
+    StateWanderAround,
+    StateMoveToPlayer,
+    StateAttack,
+    StateRecuperate
+};
+
 @interface Battlefield : Scene {
     Ship *_pirateShip;
     Ship *_enemyShip;
@@ -22,6 +29,8 @@
     SPJuggler *_juggler;
     
     Dialog *_dialogAbort;
+    
+    AIState _aiState;
     
     BOOL _paused;
 }

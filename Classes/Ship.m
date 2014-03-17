@@ -230,6 +230,14 @@
 
 -(void) moveToX:(float)x andY:(float)y
 {
+    [self moveToX:x andY:y withBlock:^
+    {
+        
+    }];
+}
+
+-(void) moveToX:(float)x andY:(float)y withBlock:(ShipCallback) block
+{
     [self stop];
     
     float targetX = x - (self.width / 2);
@@ -295,6 +303,25 @@
     [tweenX animateProperty:@"x" targetValue:targetX];
     [tweenY animateProperty:@"y" targetValue:targetY];
     
+    __block BOOL isTweenXCompleted = NO;
+    __block BOOL isTweenYCompleted = NO;
+    
+    tweenX.onComplete = ^{
+        isTweenXCompleted = YES;
+        
+        if (isTweenXCompleted && isTweenYCompleted) {
+            [block invoke];
+        }
+    };
+    
+    tweenY.onComplete = ^{
+        isTweenYCompleted = YES;
+        
+        if (isTweenXCompleted && isTweenYCompleted) {
+            [block invoke];
+        }
+    };
+    
     [_juggler addObject:tweenX];
     [_juggler addObject:tweenY];
 }
@@ -302,6 +329,24 @@
 -(void) stop
 {
     [_juggler removeObjectsWithTarget:self];
+}
+
+-(float) checkDistanceToShip:(Ship *)ship
+{
+    SPPoint* p1 = [SPPoint pointWithX:self.x + self.width y:self.y + self.height];
+    SPPoint* p2 = [SPPoint pointWithX:ship.x + ship.width y:ship.y + ship.height];
+    
+    float distance = [SPPoint distanceFromPoint:p1 toPoint:p2];
+    
+    return distance;
+}
+
+-(void) moveToShip:(Ship *)ship WithBlock:(ShipCallback)block
+{
+    float randomX = (arc4random() % 80) - 40.0f;
+    float randomY = (arc4random() % 80) - 40.0f;
+    
+    [self moveToX:ship.x + randomX andY:ship.y + randomY withBlock:block];
 }
 
 @end
