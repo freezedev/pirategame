@@ -12,6 +12,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		3B0D42DF18D7BCF1007A93C7 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D42DE18D7BCF1007A93C7 /* World.m */; };
 		3B13CF87188DC52800C93909 /* cove.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF72188DC52800C93909 /* cove.png */; };
 		3B13CF88188DC52800C93909 /* cove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF73188DC52800C93909 /* cove@2x.png */; };
 		3B13CF89188DC52800C93909 /* cove@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13CF74188DC52800C93909 /* cove@4x.png */; };
@@ -122,6 +123,8 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* App-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "App-Prefix.pch"; sourceTree = "<group>"; };
+		3B0D42DD18D7BCF1007A93C7 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		3B0D42DE18D7BCF1007A93C7 /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
 		3B13CF72188DC52800C93909 /* cove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cove.png; sourceTree = "<group>"; };
 		3B13CF73188DC52800C93909 /* cove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cove@2x.png"; sourceTree = "<group>"; };
 		3B13CF74188DC52800C93909 /* cove@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cove@4x.png"; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
 				DE4A3DE310FFB2AF00FDA492 /* Game.h */,
 				DE4A3DE410FFB2AF00FDA492 /* Game.m */,
+				3B0D42DD18D7BCF1007A93C7 /* World.h */,
+				3B0D42DE18D7BCF1007A93C7 /* World.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -585,6 +590,7 @@
 				3B950FB31877689100BBDD18 /* AssetsDictionary.m in Sources */,
 				3B13CFA2188DC7FF00C93909 /* PirateCove.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
+				3B0D42DF18D7BCF1007A93C7 /* World.m in Sources */,
 				3B607014187B073600A2AA0B /* SoundManager.m in Sources */,
 				3B607011187AEB0A00A2AA0B /* TextureManager.m in Sources */,
 				3B13CF9F188DC7D600C93909 /* Battlefield.m in Sources */,
