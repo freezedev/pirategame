@@ -19,6 +19,8 @@
         
         [SPTextField registerBitmapFontFromFile:@"PirateFont.fnt"];
         
+        [World reset];
+        
         PirateCove *pirateCove = [[PirateCove alloc] initWithName:@"piratecove"];
         Battlefield *battlefield = [[Battlefield alloc] initWithName:@"battlefield"];
         
@@ -28,7 +30,6 @@
         [director addScene:pirateCove];
         [director addScene:battlefield];
         
-        [World reset];
         [World log];
         
         [director showScene:@"piratecove"];

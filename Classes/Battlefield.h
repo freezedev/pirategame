@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, AIState) {
 
 @interface Battlefield : Scene {
     Ship *_pirateShip;
-    Ship *_enemyShip;
+    NSMutableArray *_enemyShip;
     
     SPImage *_background;
     

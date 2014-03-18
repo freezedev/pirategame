@@ -8,6 +8,7 @@
 
 #import "Battlefield.h"
 #import "Assets.h"
+#import "World.h"
 
 #import "SceneDirector.h"
 
@@ -23,7 +24,10 @@
     _background.touchable = !_paused;
     
     _pirateShip.paused = _paused;
-    _enemyShip.paused = _paused;
+    
+    for (int i = 0; i < [_enemyShip count]; i++) {
+        ((Ship *) _enemyShip[i]).paused = _paused;
+    }
 }
 
 -(BOOL) getPaused
@@ -73,22 +77,42 @@
     if ([enemyShipBounds intersectsRectangle:ball1] || [enemyShipBounds intersectsRectangle:ball2]) {
         if (ship2.cannonBallLeft.visible || ship2.cannonBallRight.visible) {
             [ship2 abortShooting];
-            [ship1 hit];
+            if (ship1.type == ShipPirate) {
+                [ship1 hit: World.damage];
+            } else {
+                [ship1 hit:[(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"damage"] intValue]];
+            }
         }
     }
 }
 
 -(void) onEnterFrame:(SPEnterFrameEvent *)event
 {
-    [self checkShipCollision:_pirateShip againstShip:_enemyShip];
-    [self checkShipCollision:_enemyShip againstShip:_pirateShip];
-    
-    double passedTime = event.passedTime;
-    
-    [_enemyShip advanceTime:passedTime];
-    [_pirateShip advanceTime:passedTime];
-    
     if (!self.paused) {
+        double passedTime = event.passedTime;
+        
+        int deadCount = 0;
+        
+        for (int i = 0; i < World.level; i++) {
+            [self checkShipCollision:_pirateShip againstShip:_enemyShip[i]];
+            [self checkShipCollision:_enemyShip[i] againstShip:_pirateShip];
+            
+            [_enemyShip[i] advanceTime:passedTime];
+            if (((Ship *) _enemyShip[i]).isDead) {
+                deadCount++;
+            }
+        }
+        
+        if (deadCount == World.level) {
+            World.gold = World.gold + (250 * World.level);
+            World.level++;
+            self.paused = YES;
+            [((SceneDirector *) self.director) showScene:@"piratecove"];
+        }
+        
+        
+        [_pirateShip advanceTime:passedTime];
+        
         [_juggler advanceTime:passedTime];
     }
 }
@@ -183,7 +207,7 @@
 -(id) init
 {
     if ((self = [super init])) {
-        self.paused = NO;
+        self.paused = YES;
         _aiState = StateWanderAround;
         
         _background = [SPImage imageWithTexture:[Assets texture:@"water.png"]];
@@ -191,12 +215,11 @@
         _background.y = (Sparrow.stage.height - _background.height) / 2;
         
         _pirateShip = [[Ship alloc] initWithType:ShipPirate];
-        _pirateShip.x = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"pirate"][@"x"] floatValue];
-        _pirateShip.y = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"pirate"][@"y"] floatValue];
         
-        _enemyShip = [[Ship alloc] init];
-        _enemyShip.x = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"enemy"][@"x"] floatValue];
-        _enemyShip.y = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"enemy"][@"y"] floatValue];
+        _enemyShip = [NSMutableArray array];
+        for (int i = 0; i < World.levelMax; i++) {
+            [_enemyShip addObject:[[Ship alloc] init]];
+        }
         
         _buttonPause = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"button_pause"]];
         _buttonResume = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"button_play"]];
@@ -236,16 +259,17 @@
         }];
         
         
-        [self updateAI:_enemyShip withState:_aiState];
-        
-        
         [_background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_pirateShip addEventListener:@selector(onShipTap:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         
         [self addEventListener:@selector(onEnterFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
         
         [self addChild:_background];
-        [self addChild:_enemyShip];
+        
+        for (int i = 0; i < [_enemyShip count]; i++) {
+            ((Ship *) _enemyShip[i]).visible = NO;
+            [self addChild:_enemyShip[i]];
+        }
         [self addChild:_pirateShip];
         
         [self addChild:_buttonPause];
@@ -256,6 +280,27 @@
     }
     
     return self;
+}
+
+-(void) reset
+{
+    self.paused = NO;
+    
+    _pirateShip.x = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"pirate"][@"x"] floatValue];
+    _pirateShip.y = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"pirate"][@"y"] floatValue];
+    
+    [_pirateShip reset];
+    
+    for (int i = 0; i < [_enemyShip count]; i++) {
+        ((Ship *) _enemyShip[i]).x = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"enemy"][i][@"x"] floatValue];
+        ((Ship *) _enemyShip[i]).y = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"enemy"][i][@"y"] floatValue];
+        [((Ship *) _enemyShip[i]) reset];
+    }
+    
+    for (int i = 0; i < World.level; i++) {
+        ((Ship *) _enemyShip[i]).visible = YES;
+        [self updateAI:_enemyShip[i] withState:_aiState];
+    }
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "Ship.h"
 
 #import "Assets.h"
+#import "World.h"
 
 @implementation Ship
 
@@ -34,6 +35,8 @@
     
     _quadHitpoints.scaleX = (float) _hitpoints / self.maxHitpoints;
     
+    _isDead = (hitpoints <= 0);
+    
     if (_hitpoints <= 0) {
         self.visible = FALSE;
     }
@@ -53,12 +56,8 @@
 -(id) initWithType:(ShipType)type
 {
     if ((self = [super init])) {
-        self.maxHitpoints = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"hitpoints"] intValue];
-        
-        self.hitpoints = self.maxHitpoints;
         self.type = type;
-        _isShooting = NO;
-        self.paused = NO;
+        [self reset];
         
         SPTextureAtlas *atlas = (type == ShipPirate) ? [Assets textureAtlas:@"ship_pirate_small_cannon.xml"] : [Assets textureAtlas:@"ship_small_cannon.xml"] ;
         
@@ -117,6 +116,19 @@
     }
     
     return self;
+}
+
+-(void) reset
+{
+    for (SPMovieClip* clip in _shootingClip) {
+        clip.color = SP_WHITE;
+    }
+    
+    self.maxHitpoints = (self.type == ShipPirate) ? World.hitpoints : [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"hitpoints"] intValue];
+    
+    self.hitpoints = self.maxHitpoints;
+    _isShooting = NO;
+    self.paused = NO;
 }
 
 -(void) advanceTime:(double)seconds
@@ -224,9 +236,9 @@
     self.cannonBallRight.visible = NO;
 }
 
--(void) hit
+-(void) hit: (int) damage
 {
-    self.hitpoints = self.hitpoints - [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"damage"] intValue];
+    self.hitpoints = self.hitpoints - damage;
     
     for (SPMovieClip* clip in _shootingClip) {
         SPTween *tween = [SPTween tweenWithTarget:clip time:0.3f];

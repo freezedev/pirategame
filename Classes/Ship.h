@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger, ShipType) {
     NSArray *_shootingClip;
     ShipDirection _direction;
     BOOL _isShooting;
+    BOOL _isDead;
     int _hitpoints;
     
     SPQuad *_quadHitpoints;
@@ -41,6 +42,7 @@ typedef NS_ENUM(NSInteger, ShipType) {
 @property ShipType type;
 @property (nonatomic) ShipDirection direction;
 @property (readonly) BOOL isShooting;
+@property (readonly) BOOL isDead;
 @property (nonatomic) BOOL paused;
 @property SPImage *cannonBallLeft;
 @property SPImage *cannonBallRight;
@@ -48,13 +50,14 @@ typedef NS_ENUM(NSInteger, ShipType) {
 @property SPJuggler *juggler;
 
 -(id)initWithType:(ShipType)type;
+-(void) reset;
 
 -(void) shoot;
 -(void) shootWithBlock:(ShipCallback) block;
 
 -(void) abortShooting;
 
--(void) hit;
+-(void) hit: (int) damage;
 
 -(void) moveToX:(float)x andY:(float)y withBlock:(ShipCallback) block;
 -(void) moveToX:(float) x andY:(float) y;
