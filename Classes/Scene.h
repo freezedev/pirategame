@@ -15,5 +15,6 @@
 @property id director;
 
 -(id) initWithName:(NSString *)name;
+-(void) reset;
 
 @end

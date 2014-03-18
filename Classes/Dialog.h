@@ -15,6 +15,9 @@
 
 }
 
+@property SPButton *buttonYes;
+@property SPButton *buttonNo;
+
 @property SPTextField *content;
 @property SPTextField *title;
 

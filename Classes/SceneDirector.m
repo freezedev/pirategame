@@ -41,6 +41,8 @@
     
     if (_dict[name] != nil) {
         ((Scene *) _dict[name]).visible = YES;
+        [((Scene *) _dict[name]) reset];
+        
     }
 }
 
