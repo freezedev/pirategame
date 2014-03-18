@@ -112,14 +112,34 @@
     };
 }
 
+-(float) fuzzyValue: (NSString *) value
+{
+    __block float result = 0.0f;
+    
+    NSDictionary *fuzzyDict = @{
+        @"Very near": ^{
+            result = (float) (arc4random() % 40) + 40.0f;
+        },
+        @"Quite near": ^{
+            result = (float) (arc4random() % 30) + 70.0f;
+        },
+        @"Near": ^{
+            result = (float) (arc4random() % 50) + 150.0f;
+        }
+    };
+    
+    [fuzzyDict[value] invoke];
+    return result;
+}
+
 -(void) updateAI: (Ship *)ship withState: (AIState) aiState
 {
     switch (aiState) {
         case StateWanderAround: {
             NSDictionary *rndPos = [self randomPos];
             [ship moveToX:[rndPos[@"x"] floatValue] andY:[rndPos[@"y"] floatValue] withBlock:^{
-                if ([ship checkDistanceToShip:_pirateShip] < 200.0f) {
-                    if ([ship checkDistanceToShip:_pirateShip] < 100.0f) {
+                if ([ship checkDistanceToShip:_pirateShip] < [self fuzzyValue:@"Near"]) {
+                    if ([ship checkDistanceToShip:_pirateShip] < [self fuzzyValue:@"Very near"]) {
                         // Attack directly
                         [self updateAI:ship withState:StateAttack];
                     } else {
@@ -135,7 +155,7 @@
             break;
         case StateMoveToPlayer: {
             [ship moveToShip:_pirateShip WithBlock:^{
-                if ([ship checkDistanceToShip:_pirateShip] < 100.0f) {
+                if ([ship checkDistanceToShip:_pirateShip] < [self fuzzyValue:@"Quite near"]) {
                     // Attack
                     [self updateAI:ship withState:StateAttack];
                 } else {
