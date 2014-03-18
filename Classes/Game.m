@@ -7,6 +7,7 @@
 #import "SceneDirector.h"
 #import "PirateCove.h"
 #import "Battlefield.h"
+#import "World.h"
 
 @implementation Game
 
@@ -24,6 +25,9 @@
         
         [director addScene:pirateCove];
         [director addScene:battlefield];
+        
+        [World reset];
+        [World log];
         
         [director showScene:@"battlefield"];
         

@@ -71,4 +71,12 @@ static int damage;
     hitpoints = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"hitpoints"] intValue];
 }
 
++(void) log
+{
+    NSLog(@"Level %d of %d", level, levelMax);
+    NSLog(@"Gold: %d", gold);
+    NSLog(@"Players' hit points: %d", hitpoints);
+    NSLog(@"Players' damage: %d", damage);
+}
+
 @end

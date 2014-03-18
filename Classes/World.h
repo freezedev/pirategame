@@ -25,5 +25,6 @@
 +(void) setDamage:(int)value;
 
 +(void) reset;
++(void) log;
 
 @end
