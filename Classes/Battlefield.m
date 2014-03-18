@@ -104,10 +104,14 @@
         }
         
         if (deadCount == World.level) {
-            World.gold = World.gold + (250 * World.level);
-            World.level++;
-            self.paused = YES;
-            [((SceneDirector *) self.director) showScene:@"piratecove"];
+            if (World.level == World.levelMax) {
+                self.textGameWon.visible = YES;
+            } else {
+                World.gold = World.gold + (250 * World.level);
+                World.level++;
+                self.paused = YES;
+                [((SceneDirector *) self.director) showScene:@"piratecove"];
+            }
         }
         
         
@@ -258,6 +262,20 @@
             _dialogAbort.visible = YES;
         }];
         
+        _textGameLost = [SPTextField textFieldWithWidth:Sparrow.stage.width height:Sparrow.stage.height text:@"Game Over"];
+        _textGameLost.fontName = @"PirateFont";
+        _textGameLost.color = SP_WHITE;
+        _textGameLost.visible = NO;
+        
+        _textGameWon = [SPTextField textFieldWithWidth:Sparrow.stage.width height:Sparrow.stage.height text:@"You won the game. Well done"];
+        _textGameWon.fontName = @"PirateFont";
+        _textGameWon.color = SP_WHITE;
+        _textGameWon.visible = NO;
+        
+        __unsafe_unretained typeof(self) weakSelf = self;
+        _pirateShip.onDead = ^{
+            weakSelf.textGameLost.visible = YES;
+        };
         
         [_background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         [_pirateShip addEventListener:@selector(onShipTap:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
@@ -277,6 +295,9 @@
         [self addChild:buttonAbort];
         
         [self addChild:_dialogAbort];
+        
+        [self addChild:_textGameLost];
+        [self addChild:_textGameWon];
     }
     
     return self;

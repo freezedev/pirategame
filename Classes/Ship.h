@@ -47,6 +47,8 @@ typedef NS_ENUM(NSInteger, ShipType) {
 @property SPImage *cannonBallLeft;
 @property SPImage *cannonBallRight;
 
+@property (nonatomic, copy) ShipCallback onDead;
+
 @property SPJuggler *juggler;
 
 -(id)initWithType:(ShipType)type;

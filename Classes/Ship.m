@@ -39,6 +39,10 @@
     
     if (_hitpoints <= 0) {
         self.visible = FALSE;
+        
+        if (self.onDead) {
+            [_onDead invoke];
+        }
     }
 }
 
