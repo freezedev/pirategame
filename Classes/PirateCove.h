@@ -7,7 +7,16 @@
 //
 
 #import "Scene.h"
+#import "Dialog.h"
 
-@interface PirateCove : Scene
+@interface PirateCove : Scene {
+    Dialog *_dialogUpdateDamage;
+    Dialog *_dialogUpdateHitpoints;
+    
+    SPTextField *_goldTextField;
+    
+    int _goldDamage;
+    int _goldHitpoints;
+}
 
 @end

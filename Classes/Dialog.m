@@ -30,8 +30,6 @@
         _content.x = 52.0f;
         _content.y = 66.0f;
         
-        [SPTextField registerBitmapFontFromFile:@"PirateFont.fnt"];
-        
         _title = [SPTextField textFieldWithWidth:background.width * 0.6 height:30.0f text:@"Dialog"];
         _title.fontName = @"PirateFont";
         _title.color = SP_WHITE;

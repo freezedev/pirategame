@@ -17,6 +17,8 @@
     {
         Sparrow.stage.color = 0xffffff;
         
+        [SPTextField registerBitmapFontFromFile:@"PirateFont.fnt"];
+        
         PirateCove *pirateCove = [[PirateCove alloc] initWithName:@"piratecove"];
         Battlefield *battlefield = [[Battlefield alloc] initWithName:@"battlefield"];
         
@@ -29,7 +31,7 @@
         [World reset];
         [World log];
         
-        [director showScene:@"battlefield"];
+        [director showScene:@"piratecove"];
         
         
     }
