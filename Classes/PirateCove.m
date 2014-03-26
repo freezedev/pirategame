@@ -18,7 +18,7 @@
 -(id) init
 {
     if ((self = [super init])) {
-        SPSound *sound = [SPSound soundWithContentsOfFile:@"music_cove.aifc"];
+        SPSound *sound = [Assets sound:@"music_cove.aifc"];
         backgroundMusic = [sound createChannel];
         backgroundMusic.loop = YES;
         
