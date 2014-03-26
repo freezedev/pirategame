@@ -17,6 +17,8 @@
     {
         Sparrow.stage.color = 0xffffff;
         
+        [SPAudioEngine start];
+        
         [SPTextField registerBitmapFontFromFile:@"PirateFont.fnt"];
         
         [World reset];
@@ -37,6 +39,11 @@
         
     }
     return self;
+}
+
+-(void) dealloc
+{
+    [SPAudioEngine stop];
 }
 
 @end
