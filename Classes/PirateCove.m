@@ -18,6 +18,13 @@
 -(id) init
 {
     if ((self = [super init])) {
+        SPSound *sound = [SPSound soundWithContentsOfFile:@"music_cove.aifc"];
+        backgroundMusic = [sound createChannel];
+        backgroundMusic.loop = YES;
+        
+        [backgroundMusic play];
+        
+        
         SPImage *background = [SPImage imageWithTexture:[Assets texture:@"cove.png"]];
         background.x = (Sparrow.stage.width - background.width) / 2;
         background.y = (Sparrow.stage.height - background.height) / 2;

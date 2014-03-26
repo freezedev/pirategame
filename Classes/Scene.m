@@ -29,6 +29,12 @@
     return self;
 }
 
+
+-(void) stop
+{
+
+}
+
 -(void) reset
 {
 

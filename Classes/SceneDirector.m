@@ -37,6 +37,7 @@
 {
     for (NSString* sceneName in _dict) {
         ((Scene *) _dict[sceneName]).visible = false;
+        [((Scene *) _dict[sceneName]) stop];
     }
     
     if (_dict[name] != nil) {

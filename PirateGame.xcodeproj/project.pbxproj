@@ -76,6 +76,12 @@
 		3B607025187B36A700A2AA0B /* Assets.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607024187B36A700A2AA0B /* Assets.m */; };
 		3B68E40D18BD38C5003599EF /* gameplay.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B68E40C18BD38C5003599EF /* gameplay.json */; };
 		3B950FB31877689100BBDD18 /* AssetsDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B950FB21877689100BBDD18 /* AssetsDictionary.m */; };
+		3BEEAA6D18E38CB200A06F60 /* music_battlefield.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3BEEAA6B18E38CB200A06F60 /* music_battlefield.aifc */; };
+		3BEEAA6E18E38CB200A06F60 /* music_cove.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3BEEAA6C18E38CB200A06F60 /* music_cove.aifc */; };
+		3BEEAA7318E38E9800A06F60 /* explode.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3BEEAA6F18E38E9800A06F60 /* explode.caf */; };
+		3BEEAA7418E38E9800A06F60 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3BEEAA7018E38E9800A06F60 /* hit.caf */; };
+		3BEEAA7518E38E9800A06F60 /* powerup.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3BEEAA7118E38E9800A06F60 /* powerup.caf */; };
+		3BEEAA7618E38E9800A06F60 /* shoot.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3BEEAA7218E38E9800A06F60 /* shoot.caf */; };
 		DE3F093811B7B9DC009D4DB0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */; };
 		DE3F093A11B7B9DC009D4DB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */; };
 		DE3F097811B7BABD009D4DB0 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F097711B7BABD009D4DB0 /* OpenAL.framework */; };
@@ -201,6 +207,12 @@
 		3B847FE818665EEA00678F84 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		3B950FB11877689100BBDD18 /* AssetsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsDictionary.h; sourceTree = "<group>"; };
 		3B950FB21877689100BBDD18 /* AssetsDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsDictionary.m; sourceTree = "<group>"; };
+		3BEEAA6B18E38CB200A06F60 /* music_battlefield.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; path = music_battlefield.aifc; sourceTree = "<group>"; };
+		3BEEAA6C18E38CB200A06F60 /* music_cove.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; path = music_cove.aifc; sourceTree = "<group>"; };
+		3BEEAA6F18E38E9800A06F60 /* explode.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = explode.caf; sourceTree = "<group>"; };
+		3BEEAA7018E38E9800A06F60 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit.caf; sourceTree = "<group>"; };
+		3BEEAA7118E38E9800A06F60 /* powerup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = powerup.caf; sourceTree = "<group>"; };
+		3BEEAA7218E38E9800A06F60 /* shoot.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoot.caf; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "App-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -291,6 +303,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3BEEAA6F18E38E9800A06F60 /* explode.caf */,
+				3BEEAA7018E38E9800A06F60 /* hit.caf */,
+				3BEEAA7118E38E9800A06F60 /* powerup.caf */,
+				3BEEAA7218E38E9800A06F60 /* shoot.caf */,
+				3BEEAA6B18E38CB200A06F60 /* music_battlefield.aifc */,
+				3BEEAA6C18E38CB200A06F60 /* music_cove.aifc */,
 				3B45EFE718CFDB3B00D99515 /* PirateFont.fnt */,
 				3B45EFE818CFDB3B00D99515 /* PirateFont.png */,
 				3B45EFE918CFDB3B00D99515 /* PirateFont@2x.fnt */,
@@ -516,14 +534,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BEEAA7518E38E9800A06F60 /* powerup.caf in Resources */,
 				3B34F70218B3E18C0090BD19 /* cannonball.png in Resources */,
 				3B13CF88188DC52800C93909 /* cove@2x.png in Resources */,
+				3BEEAA7318E38E9800A06F60 /* explode.caf in Resources */,
 				3B13CF8A188DC52800C93909 /* house.png in Resources */,
 				3B607019187B161E00A2AA0B /* example.json in Resources */,
 				3B45EFF218CFDB3B00D99515 /* PirateFont@4x.png in Resources */,
 				DE91027C16244E60001FD950 /* Default-568h@2x.png in Resources */,
 				3B13CF87188DC52800C93909 /* cove.png in Resources */,
 				3B13CF93188DC52800C93909 /* tavern.png in Resources */,
+				3BEEAA7618E38E9800A06F60 /* shoot.caf in Resources */,
 				3B13CF92188DC52800C93909 /* ship@4x.png in Resources */,
 				3B34F6F918B3BE260090BD19 /* ship_pirate_small_cannon.pvr.gz in Resources */,
 				3B13CF8F188DC52800C93909 /* ship_pirate@4x.png in Resources */,
@@ -551,8 +572,10 @@
 				3B45EFF018CFDB3B00D99515 /* PirateFont@2x.png in Resources */,
 				3B34F70C18B3E1B60090BD19 /* ship_small_cannon.xml in Resources */,
 				3B34F70E18B3E1B60090BD19 /* ship_small_cannon@2x.xml in Resources */,
+				3BEEAA7418E38E9800A06F60 /* hit.caf in Resources */,
 				3B34F6FC18B3BE260090BD19 /* ship_pirate_small_cannon@2x.xml in Resources */,
 				3B45EFCA18CFD20F00D99515 /* ui.xml in Resources */,
+				3BEEAA6E18E38CB200A06F60 /* music_cove.aifc in Resources */,
 				3B45EFCB18CFD20F00D99515 /* ui@2x.pvr.gz in Resources */,
 				3B13CF9B188DC52800C93909 /* weaponsmith@4x.png in Resources */,
 				3B13CF8E188DC52800C93909 /* ship_pirate@2x.png in Resources */,
@@ -561,6 +584,7 @@
 				3B45EFEE18CFDB3B00D99515 /* PirateFont.png in Resources */,
 				3B13CF94188DC52800C93909 /* tavern@2x.png in Resources */,
 				3B45EFCD18CFD20F00D99515 /* ui@4x.pvr.gz in Resources */,
+				3BEEAA6D18E38CB200A06F60 /* music_battlefield.aifc in Resources */,
 				3B13CF9A188DC52800C93909 /* weaponsmith@2x.png in Resources */,
 				3B34F70318B3E18C0090BD19 /* cannonball@2x.png in Resources */,
 				3B45EFCC18CFD20F00D99515 /* ui@2x.xml in Resources */,

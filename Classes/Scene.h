@@ -8,7 +8,9 @@
 
 #import "SPSprite.h"
 
-@interface Scene : SPSprite
+@interface Scene : SPSprite {
+    SPSoundChannel *backgroundMusic;
+}
 
 @property SPSprite* guiLayer;
 @property NSString* name;
@@ -16,5 +18,6 @@
 
 -(id) initWithName:(NSString *)name;
 -(void) reset;
+-(void) stop;
 
 @end
