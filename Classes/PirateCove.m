@@ -120,6 +120,8 @@
     World.damage = World.damage + (int) (World.damage / 10);
     World.gold = World.gold - _goldDamage;
     [self updateGoldTextField];
+    
+    [[Assets sound:@"powerup.caf"] play];
 }
 
 -(void) onUpdateHitpoints: (SPEvent *) event
@@ -127,6 +129,8 @@
     World.hitpoints = World.hitpoints + (int) (World.hitpoints / 5);
     World.gold = World.gold - _goldHitpoints;
     [self updateGoldTextField];
+    
+    [[Assets sound:@"powerup.caf"] play];
 }
 
 -(void) updateGoldTextField
