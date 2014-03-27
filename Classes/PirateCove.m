@@ -22,8 +22,6 @@
         backgroundMusic = [sound createChannel];
         backgroundMusic.loop = YES;
         
-        [backgroundMusic play];
-        
         
         SPImage *background = [SPImage imageWithTexture:[Assets texture:@"cove.png"]];
         background.x = (Sparrow.stage.width - background.width) / 2;
@@ -138,6 +136,8 @@
 
 -(void) reset
 {
+    [backgroundMusic play];
+    
     _goldDamage = (150 + (50 * (World.level - 1)));
     _dialogUpdateDamage.content.text = [NSString stringWithFormat:@"Increasing damage costs %d gold. Do you wish to proceed?", _goldDamage];
     
@@ -145,6 +145,11 @@
     _dialogUpdateHitpoints.content.text = [NSString stringWithFormat:@"Increasing hitpoints costs %d gold. Do you wish to proceed?", _goldHitpoints];
     
     [self updateGoldTextField];
+}
+
+-(void) stop
+{
+    [backgroundMusic stop];
 }
 
 @end
