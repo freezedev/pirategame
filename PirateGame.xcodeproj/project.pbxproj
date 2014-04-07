@@ -64,6 +64,7 @@
 		3B45EFF118CFDB3B00D99515 /* PirateFont@4x.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 3B45EFEB18CFDB3B00D99515 /* PirateFont@4x.fnt */; };
 		3B45EFF218CFDB3B00D99515 /* PirateFont@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B45EFEC18CFDB3B00D99515 /* PirateFont@4x.png */; };
 		3B4C2A7618D0E7B000225FA0 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C2A7518D0E7B000225FA0 /* Dialog.m */; };
+		3B564A6E18F2EAFD007F3239 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B564A6D18F2EAFD007F3239 /* MainMenu.m */; };
 		3B5650BD18B0C6760033A96E /* Ship.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5650BC18B0C6760033A96E /* Ship.m */; };
 		3B5650C018B0C68E0033A96E /* PirateShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5650BF18B0C68E0033A96E /* PirateShip.m */; };
 		3B607011187AEB0A00A2AA0B /* TextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607010187AEB0A00A2AA0B /* TextureManager.m */; };
@@ -186,6 +187,8 @@
 		3B45EFEC18CFDB3B00D99515 /* PirateFont@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PirateFont@4x.png"; sourceTree = "<group>"; };
 		3B4C2A7418D0E7B000225FA0 /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
 		3B4C2A7518D0E7B000225FA0 /* Dialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
+		3B564A6C18F2EAFD007F3239 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		3B564A6D18F2EAFD007F3239 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		3B5650BB18B0C6760033A96E /* Ship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ship.h; sourceTree = "<group>"; };
 		3B5650BC18B0C6760033A96E /* Ship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ship.m; sourceTree = "<group>"; };
 		3B5650BE18B0C68E0033A96E /* PirateShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PirateShip.h; sourceTree = "<group>"; };
@@ -397,6 +400,8 @@
 				3B13CF9E188DC7D600C93909 /* Battlefield.m */,
 				3B7629DD18F215A900171652 /* GameOver.h */,
 				3B7629DE18F215A900171652 /* GameOver.m */,
+				3B564A6C18F2EAFD007F3239 /* MainMenu.h */,
+				3B564A6D18F2EAFD007F3239 /* MainMenu.m */,
 			);
 			name = GameScenes;
 			sourceTree = "<group>";
@@ -626,6 +631,7 @@
 				3B13CF9F188DC7D600C93909 /* Battlefield.m in Sources */,
 				3B607017187B153900A2AA0B /* FileManager.m in Sources */,
 				DE4A3DE510FFB2AF00FDA492 /* Game.m in Sources */,
+				3B564A6E18F2EAFD007F3239 /* MainMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
