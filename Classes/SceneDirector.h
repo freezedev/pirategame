@@ -13,7 +13,7 @@
     NSMutableDictionary *_dict;
 }
 
-@property Scene *currentScene;
+@property (readonly) Scene *currentScene;
 
 -(void) addScene:(Scene *)scene;
 -(void) addScene:(Scene *)scene WithName:(NSString *)name;

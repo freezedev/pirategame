@@ -19,11 +19,6 @@
     return self;
 }
 
--(Scene *) getCurrentScene
-{
-    return _currentScene;
-}
-
 -(void) addScene:(Scene *)scene
 {
     [self addScene:scene WithName:scene.name];
