@@ -55,4 +55,9 @@
     return self;
 }
 
+-(void) reset
+{
+    self.gameWon = NO;
+}
+
 @end

@@ -19,6 +19,11 @@
     return self;
 }
 
+-(Scene *) getCurrentScene
+{
+    return _currentScene;
+}
+
 -(void) addScene:(Scene *)scene
 {
     [self addScene:scene WithName:scene.name];
@@ -43,7 +48,7 @@
     if (_dict[name] != nil) {
         ((Scene *) _dict[name]).visible = YES;
         [((Scene *) _dict[name]) reset];
-        
+        _currentScene = (Scene *) _dict[name];
     }
 }
 

@@ -37,7 +37,7 @@
         
         [World log];
         
-        [director showScene:@"gameover"];
+        [director showScene:@"piratecove"];
         
         
     }

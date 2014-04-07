@@ -36,7 +36,5 @@ typedef NS_ENUM(NSInteger, AIState) {
 }
 
 @property (nonatomic) BOOL paused;
-@property SPTextField *textGameWon;
-@property SPTextField *textGameLost;
 
 @end

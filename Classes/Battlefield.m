@@ -9,6 +9,7 @@
 #import "Battlefield.h"
 #import "Assets.h"
 #import "World.h"
+#import "GameOver.h"
 
 #import "SceneDirector.h"
 
@@ -105,7 +106,8 @@
         
         if (deadCount == World.level) {
             if (World.level == World.levelMax) {
-                self.textGameWon.visible = YES;
+                [(SceneDirector *) self.director showScene:@"gameover"];
+                ((GameOver *) ((SceneDirector *) self.director).currentScene).gameWon = YES;
             } else {
                 World.gold = World.gold + (250 * World.level);
                 World.level++;
@@ -262,19 +264,10 @@
             _dialogAbort.visible = YES;
         }];
         
-        _textGameLost = [SPTextField textFieldWithWidth:Sparrow.stage.width height:Sparrow.stage.height text:@"Game Over"];
-        _textGameLost.fontName = @"PirateFont";
-        _textGameLost.color = SP_WHITE;
-        _textGameLost.visible = NO;
-        
-        _textGameWon = [SPTextField textFieldWithWidth:Sparrow.stage.width height:Sparrow.stage.height text:@"You won the game. Well done"];
-        _textGameWon.fontName = @"PirateFont";
-        _textGameWon.color = SP_WHITE;
-        _textGameWon.visible = NO;
-        
         __unsafe_unretained typeof(self) weakSelf = self;
         _pirateShip.onDead = ^{
-            weakSelf.textGameLost.visible = YES;
+            [(SceneDirector *) weakSelf.director showScene:@"gameover"];
+            ((GameOver *) ((SceneDirector *) weakSelf.director).currentScene).gameWon = NO;
         };
         
         [_background addEventListener:@selector(onBackgroundTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
@@ -295,9 +288,6 @@
         [self addChild:buttonAbort];
         
         [self addChild:_dialogAbort];
-        
-        [self addChild:_textGameLost];
-        [self addChild:_textGameWon];
     }
     
     return self;
@@ -311,11 +301,13 @@
     _pirateShip.y = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"pirate"][@"y"] floatValue];
     
     [_pirateShip reset];
+    _pirateShip.visible = YES;
     
     for (int i = 0; i < [_enemyShip count]; i++) {
         ((Ship *) _enemyShip[i]).x = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"enemy"][i][@"x"] floatValue];
         ((Ship *) _enemyShip[i]).y = [(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"battlefield"][@"enemy"][i][@"y"] floatValue];
         [((Ship *) _enemyShip[i]) reset];
+        ((Ship *) _enemyShip[i]).visible = NO;
     }
     
     for (int i = 0; i < World.level; i++) {

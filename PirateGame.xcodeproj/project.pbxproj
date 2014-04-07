@@ -75,6 +75,7 @@
 		3B607022187B337800A2AA0B /* SceneDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607021187B337800A2AA0B /* SceneDirector.m */; };
 		3B607025187B36A700A2AA0B /* Assets.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607024187B36A700A2AA0B /* Assets.m */; };
 		3B68E40D18BD38C5003599EF /* gameplay.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B68E40C18BD38C5003599EF /* gameplay.json */; };
+		3B7629DF18F215A900171652 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7629DE18F215A900171652 /* GameOver.m */; };
 		3B950FB31877689100BBDD18 /* AssetsDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B950FB21877689100BBDD18 /* AssetsDictionary.m */; };
 		3BEEAA6D18E38CB200A06F60 /* music_battlefield.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3BEEAA6B18E38CB200A06F60 /* music_battlefield.aifc */; };
 		3BEEAA6E18E38CB200A06F60 /* music_cove.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3BEEAA6C18E38CB200A06F60 /* music_cove.aifc */; };
@@ -204,6 +205,8 @@
 		3B607023187B36A700A2AA0B /* Assets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assets.h; sourceTree = "<group>"; };
 		3B607024187B36A700A2AA0B /* Assets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assets.m; sourceTree = "<group>"; };
 		3B68E40C18BD38C5003599EF /* gameplay.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gameplay.json; sourceTree = "<group>"; };
+		3B7629DD18F215A900171652 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
+		3B7629DE18F215A900171652 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 		3B847FE818665EEA00678F84 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		3B950FB11877689100BBDD18 /* AssetsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsDictionary.h; sourceTree = "<group>"; };
 		3B950FB21877689100BBDD18 /* AssetsDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsDictionary.m; sourceTree = "<group>"; };
@@ -392,6 +395,8 @@
 				3B13CFA1188DC7FF00C93909 /* PirateCove.m */,
 				3B13CF9D188DC7D600C93909 /* Battlefield.h */,
 				3B13CF9E188DC7D600C93909 /* Battlefield.m */,
+				3B7629DD18F215A900171652 /* GameOver.h */,
+				3B7629DE18F215A900171652 /* GameOver.m */,
 			);
 			name = GameScenes;
 			sourceTree = "<group>";
@@ -616,6 +621,7 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				3B0D42DF18D7BCF1007A93C7 /* World.m in Sources */,
 				3B607014187B073600A2AA0B /* SoundManager.m in Sources */,
+				3B7629DF18F215A900171652 /* GameOver.m in Sources */,
 				3B607011187AEB0A00A2AA0B /* TextureManager.m in Sources */,
 				3B13CF9F188DC7D600C93909 /* Battlefield.m in Sources */,
 				3B607017187B153900A2AA0B /* FileManager.m in Sources */,
