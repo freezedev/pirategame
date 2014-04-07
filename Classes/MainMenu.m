@@ -29,7 +29,7 @@
         buttonNewGame.y = 50.0f;
         
         [buttonNewGame addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(id event) {
-            [(SceneDirector *) self.director showScene:@"piratecove"];
+            [(SceneDirector *) self.director showScene:@"intro"];
         }];
         
         SPButton *buttonContinue = [SPButton buttonWithUpState:[[Assets textureAtlas:@"ui.xml"] textureByName:@"dialog_yes"] text:@"Continue"];

@@ -10,6 +10,7 @@
 #import "GameOver.h"
 #import "MainMenu.h"
 #import "World.h"
+#import "Intro.h"
 
 @implementation Game
 
@@ -29,6 +30,7 @@
         Battlefield *battlefield = [[Battlefield alloc] initWithName:@"battlefield"];
         GameOver *gameOver = [[GameOver alloc] initWithName:@"gameover"];
         MainMenu *mainMenu = [[MainMenu alloc] initWithName:@"mainmenu"];
+        Intro *intro = [[Intro alloc] initWithName:@"intro"];
         
         SceneDirector *director = [[SceneDirector alloc] init];
         [self addChild:director];
@@ -37,6 +39,7 @@
         [director addScene:battlefield];
         [director addScene:gameOver];
         [director addScene:mainMenu];
+        [director addScene:intro];
         
         [World log];
         

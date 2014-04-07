@@ -10,6 +10,7 @@
 #import "Assets.h"
 #import "World.h"
 #import "GameOver.h"
+#import "Collision.h"
 
 #import "SceneDirector.h"
 
@@ -69,24 +70,6 @@
     self.paused = NO;
 }
 
--(void) checkShipCollision: (Ship *) ship1 againstShip: (Ship *) ship2
-{
-    SPRectangle *enemyShipBounds = [ship1 boundsInSpace:self];
-    SPRectangle *ball1 = [ship2.cannonBallLeft boundsInSpace:self];
-    SPRectangle *ball2 = [ship2.cannonBallRight boundsInSpace:self];
-    
-    if ([enemyShipBounds intersectsRectangle:ball1] || [enemyShipBounds intersectsRectangle:ball2]) {
-        if (ship2.cannonBallLeft.visible || ship2.cannonBallRight.visible) {
-            [ship2 abortShooting];
-            if (ship1.type == ShipPirate) {
-                [ship1 hit: World.damage];
-            } else {
-                [ship1 hit:[(NSNumber *) [Assets dictionaryFromJSON:@"gameplay.json"][@"damage"] intValue]];
-            }
-        }
-    }
-}
-
 -(void) onEnterFrame:(SPEnterFrameEvent *)event
 {
     if (!self.paused) {
@@ -95,8 +78,8 @@
         int deadCount = 0;
         
         for (int i = 0; i < World.level; i++) {
-            [self checkShipCollision:_pirateShip againstShip:_enemyShip[i]];
-            [self checkShipCollision:_enemyShip[i] againstShip:_pirateShip];
+            [Collision checkShipCollision:_pirateShip againstShip:_enemyShip[i] withReferenceToSprite:self];
+            [Collision checkShipCollision:_enemyShip[i] againstShip:_pirateShip withReferenceToSprite:self];
             
             [_enemyShip[i] advanceTime:passedTime];
             if (((Ship *) _enemyShip[i]).isDead) {
