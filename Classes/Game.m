@@ -7,6 +7,7 @@
 #import "SceneDirector.h"
 #import "PirateCove.h"
 #import "Battlefield.h"
+#import "GameOver.h"
 #import "World.h"
 
 @implementation Game
@@ -25,16 +26,18 @@
         
         PirateCove *pirateCove = [[PirateCove alloc] initWithName:@"piratecove"];
         Battlefield *battlefield = [[Battlefield alloc] initWithName:@"battlefield"];
+        GameOver *gameOver = [[GameOver alloc] initWithName:@"gameover"];
         
         SceneDirector *director = [[SceneDirector alloc] init];
         [self addChild:director];
         
         [director addScene:pirateCove];
         [director addScene:battlefield];
+        [director addScene:gameOver];
         
         [World log];
         
-        [director showScene:@"piratecove"];
+        [director showScene:@"gameover"];
         
         
     }
