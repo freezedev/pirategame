@@ -4,7 +4,8 @@
 //
 
 #import "AppDelegate.h"
-#import "Game.h" 
+#import "Game.h"
+#import "World.h"
 
 @implementation AppDelegate
 {
@@ -32,5 +33,13 @@
     
     return YES;
 }
+
+- (void)applicationWillResignActiveNotification:(NSNotification*)notification
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:[World serialize] forKey:@"game"];
+    [userDefaults synchronize];
+}
+
 
 @end

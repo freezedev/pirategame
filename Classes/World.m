@@ -79,4 +79,22 @@ static int damage;
     NSLog(@"Players' damage: %d", damage);
 }
 
++(NSDictionary *) serialize
+{
+    return @{
+             @"level": [NSNumber numberWithInt:level],
+             @"gold": [NSNumber numberWithInt:gold],
+             @"damage": [NSNumber numberWithInt:damage],
+             @"hitpoints": [NSNumber numberWithInt:hitpoints]
+    };
+}
+
++(void) deserialize: (NSDictionary *) dict
+{
+    level = [(NSNumber *) dict[@"level"] intValue];
+    gold = [(NSNumber *) dict[@"gold"] intValue];
+    damage = [(NSNumber *) dict[@"damage"] intValue];
+    hitpoints = [(NSNumber *) dict[@"hitpoints"] intValue];
+}
+
 @end

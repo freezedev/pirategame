@@ -10,6 +10,7 @@
 #import "Assets.h"
 #import "Ship.h"
 #import "SceneDirector.h"
+#import "World.h"
 
 @implementation MainMenu
 
@@ -37,6 +38,17 @@
         buttonContinue.x = (Sparrow.stage.width - buttonContinue.width) / 2;
         buttonContinue.y = 150.0f;
         buttonContinue.enabled = NO;
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        id savedGame = [userDefaults objectForKey:@"game"];
+        if (savedGame != nil) {
+            [World deserialize:(NSDictionary *) [userDefaults objectForKey:@"game"]];
+            buttonContinue.enabled = YES;
+        }
+        
+        [buttonContinue addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(id event) {
+            [(SceneDirector *) self.director showScene:@"piratecove"];
+        }];
         
         [self addChild:background];
         [self addChild:ship];

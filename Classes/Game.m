@@ -9,8 +9,8 @@
 #import "Battlefield.h"
 #import "GameOver.h"
 #import "MainMenu.h"
-#import "World.h"
 #import "Intro.h"
+#import "World.h"
 
 @implementation Game
 

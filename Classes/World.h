@@ -27,4 +27,7 @@
 +(void) reset;
 +(void) log;
 
++(NSDictionary *) serialize;
++(void) deserialize: (NSDictionary *) dict;
+
 @end
