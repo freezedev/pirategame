@@ -39,10 +39,22 @@
             [(SceneDirector *) self.director showScene:@"piratecove"];
         }];
         
+        SPQuad *quad = [SPQuad quadWithWidth:400.0f height:60.0f color:SP_BLACK];
+        quad.alpha = 0.8f;
+        quad.x = 16.0f;
+        quad.y = 16.0f;
+        
+        _message = [SPTextField textFieldWithWidth:400.0f height:60.0f text:@"Welcome to the battlefield."];
+        _message.color = SP_WHITE;
+        _message.x = 16.0f;
+        _message.y = 16.0f;
+        
         [self addChild:background];
         [self addChild:_pirateShip];
         [self addChild:_enemyShip];
         [self addChild:buttonNext];
+        [self addChild:quad];
+        [self addChild:_message];
     }
     
     return self;
@@ -65,11 +77,15 @@
     [_enemyShip reset];
     
     [_pirateShip moveToX:Sparrow.stage.width / 2 andY:(Sparrow.stage.height / 2) - 20.0f withBlock:^{
-        [_pirateShip.juggler delayInvocationByTime:1.5f block:^{
+        _message.text = @"There is your ship (the pirate ship) and at least one enemy";
+        [_pirateShip.juggler delayInvocationByTime:2.5f block:^{
             [_pirateShip shootWithBlock:^{
+                 _message.text = @"Tap anywhere to move your ship.";
                 [_pirateShip shootWithBlock:^{
                     [_pirateShip shootWithBlock:^{
-                        [_pirateShip.juggler delayInvocationByTime:1.0f block:^{
+                         _message.text = @"Double-tap on your ship to shoot.";
+                        [_pirateShip.juggler delayInvocationByTime:2.5f block:^{
+                             _message.text = @"In-between missions you can upgrade your ship.";
                             [_pirateShip shoot];
                         }];
                     }];

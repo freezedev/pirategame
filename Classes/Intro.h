@@ -12,6 +12,7 @@
 @interface Intro : Scene {
     Ship *_pirateShip;
     Ship *_enemyShip;
+    SPTextField *_message;
 }
 
 @end
