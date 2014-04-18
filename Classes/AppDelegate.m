@@ -8,6 +8,7 @@
 #import "World.h"
 
 #import <UbertestersSDK/Ubertesters.h>
+#import <GameKit/GameKit.h>
 
 @implementation AppDelegate
 {
@@ -31,6 +32,16 @@
     [Ubertesters initialize];
     
     [_viewController startWithRoot:[Game class] supportHighResolutions:YES doubleOnPad:YES];
+    
+    [GKLocalPlayer localPlayer].authenticateHandler = ^(UIViewController *viewController, NSError *error) {
+        if ([GKLocalPlayer localPlayer].authenticated) {
+            NSLog(@"Already authenticated");
+        } else if(viewController) {
+            [[Sparrow currentController] presentViewController:viewController animated:YES completion:nil];//present the login form
+        } else {
+            NSLog(@"Problem while authenticating");
+        } 
+    };
     
     [_window setRootViewController:_viewController];
     [_window makeKeyAndVisible];
