@@ -42,7 +42,7 @@
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         id savedGame = [userDefaults objectForKey:@"game"];
         if (savedGame != nil) {
-            [World deserialize:(NSDictionary *) [userDefaults objectForKey:@"game"]];
+            [World deserialize:(NSDictionary *) savedGame];
             buttonContinue.enabled = YES;
         }
         
