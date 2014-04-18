@@ -7,6 +7,8 @@
 #import "Game.h"
 #import "World.h"
 
+#import <UbertestersSDK/Ubertesters.h>
+
 @implementation AppDelegate
 {
     SPViewController *_viewController;
@@ -25,6 +27,8 @@
     // _viewController.showStats = YES;
     // _viewController.multitouchEnabled = YES;
     // _viewController.preferredFramesPerSecond = 60;
+    
+    [Ubertesters initialize];
     
     [_viewController startWithRoot:[Game class] supportHighResolutions:YES doubleOnPad:YES];
     
