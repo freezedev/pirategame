@@ -14,6 +14,8 @@
 
 @property BOOL verbose;
 
--(id) registerAsset:(NSString *)filename withContent:(id)content;
+-(id) registerAsset:(NSString *)name withContent:(id)content;
+-(void) unregisterAsset:(NSString *)name;
+-(void) clear;
 
 @end

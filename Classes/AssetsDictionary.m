@@ -24,7 +24,7 @@
 {
 	id result;
 
-	if ([_dict valueForKey:name] == nil) {
+	if ([_dict objectForKey:name] == nil) {
 		[_dict setObject:content forKey:name];
 		
 		result = content;
@@ -33,14 +33,26 @@
 			NSLog(@"Asset %@ does not exist. Registering.", name);
 		}
 	} else {
-		result = [_dict valueForKey:name];
+		result = [_dict objectForKey:name];
 		
 		if (self.verbose) {
-			NSLog(@"Asset %@ does already exist. Using cached value.", name);
+			NSLog(@"Asset %@ already exists. Using cached value.", name);
 		}
 	}
 
 	return result;
+}
+
+-(void) unregisterAsset:(NSString *)name
+{
+    if ([_dict objectForKey:name] == nil) {
+        [_dict removeObjectForKey:name];
+    }
+}
+
+-(void) clear
+{
+    [_dict removeAllObjects];
 }
 
 @end

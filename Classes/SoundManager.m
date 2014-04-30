@@ -12,7 +12,11 @@
 
 -(SPSound *) registerSound:(NSString *)filename
 {
-    return (SPSound *) [self registerAsset:filename withContent:[SPSound soundWithContentsOfFile:filename]];
+    if ([_dict objectForKey:filename] == nil) {
+		return (SPSound *) [self registerAsset:filename withContent:[SPSound soundWithContentsOfFile:filename]];
+	} else {
+		return (SPSound *) [self registerAsset:filename withContent:nil];
+	}
 }
 
 @end
