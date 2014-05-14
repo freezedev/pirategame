@@ -21,10 +21,10 @@
 
 -(void) addScene:(Scene *)scene
 {
-    [self addScene:scene WithName:scene.name];
+    [self addScene:scene withName:scene.name];
 }
 
--(void) addScene:(Scene *)scene WithName:(NSString *)name
+-(void) addScene:(Scene *)scene withName:(NSString *)name
 {
     scene.name = name;
     _dict[name] = scene;

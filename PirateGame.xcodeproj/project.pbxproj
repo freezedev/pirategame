@@ -77,9 +77,18 @@
 		3B60701F187B321C00A2AA0B /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B60701E187B321C00A2AA0B /* Scene.m */; };
 		3B607022187B337800A2AA0B /* SceneDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607021187B337800A2AA0B /* SceneDirector.m */; };
 		3B607025187B36A700A2AA0B /* Assets.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B607024187B36A700A2AA0B /* Assets.m */; };
+		3B6227FE19013243004CD1BC /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6227FD19013243004CD1BC /* AdSupport.framework */; };
+		3B62280119013265004CD1BC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B62280019013265004CD1BC /* CoreImage.framework */; };
+		3B62280319013277004CD1BC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B62280219013277004CD1BC /* SystemConfiguration.framework */; };
+		3B6228051901328B004CD1BC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6228041901328B004CD1BC /* CoreTelephony.framework */; };
+		3B622807190132A5004CD1BC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B622806190132A5004CD1BC /* CoreLocation.framework */; };
+		3B622809190132B4004CD1BC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B622808190132B4004CD1BC /* CoreMotion.framework */; };
 		3B68E40D18BD38C5003599EF /* gameplay.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B68E40C18BD38C5003599EF /* gameplay.json */; };
 		3B7629DF18F215A900171652 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7629DE18F215A900171652 /* GameOver.m */; };
 		3B950FB31877689100BBDD18 /* AssetsDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B950FB21877689100BBDD18 /* AssetsDictionary.m */; };
+		3BB8BE3D1900582200E72DB3 /* UbertestersSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB8BE3B1900582200E72DB3 /* UbertestersSDK.framework */; };
+		3BB8BE3E1900582200E72DB3 /* UbertestersSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3BB8BE3C1900582200E72DB3 /* UbertestersSDKResources.bundle */; };
+		3BD4166E1901A2BC003680DB /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD4166D1901A2BC003680DB /* GameKit.framework */; };
 		3BEEAA6D18E38CB200A06F60 /* music_battlefield.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3BEEAA6B18E38CB200A06F60 /* music_battlefield.aifc */; };
 		3BEEAA6E18E38CB200A06F60 /* music_cove.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3BEEAA6C18E38CB200A06F60 /* music_cove.aifc */; };
 		3BEEAA7318E38E9800A06F60 /* explode.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3BEEAA6F18E38E9800A06F60 /* explode.caf */; };
@@ -213,12 +222,21 @@
 		3B607021187B337800A2AA0B /* SceneDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDirector.m; sourceTree = "<group>"; };
 		3B607023187B36A700A2AA0B /* Assets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assets.h; sourceTree = "<group>"; };
 		3B607024187B36A700A2AA0B /* Assets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assets.m; sourceTree = "<group>"; };
+		3B6227FD19013243004CD1BC /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		3B62280019013265004CD1BC /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		3B62280219013277004CD1BC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3B6228041901328B004CD1BC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3B622806190132A5004CD1BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3B622808190132B4004CD1BC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		3B68E40C18BD38C5003599EF /* gameplay.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gameplay.json; sourceTree = "<group>"; };
 		3B7629DD18F215A900171652 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
 		3B7629DE18F215A900171652 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 		3B847FE818665EEA00678F84 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		3B950FB11877689100BBDD18 /* AssetsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsDictionary.h; sourceTree = "<group>"; };
 		3B950FB21877689100BBDD18 /* AssetsDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsDictionary.m; sourceTree = "<group>"; };
+		3BB8BE3B1900582200E72DB3 /* UbertestersSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UbertestersSDK.framework; sourceTree = "<group>"; };
+		3BB8BE3C1900582200E72DB3 /* UbertestersSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UbertestersSDKResources.bundle; sourceTree = "<group>"; };
+		3BD4166D1901A2BC003680DB /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		3BEEAA6B18E38CB200A06F60 /* music_battlefield.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; path = music_battlefield.aifc; sourceTree = "<group>"; };
 		3BEEAA6C18E38CB200A06F60 /* music_cove.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; path = music_cove.aifc; sourceTree = "<group>"; };
 		3BEEAA6F18E38E9800A06F60 /* explode.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = explode.caf; sourceTree = "<group>"; };
@@ -246,8 +264,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BD4166E1901A2BC003680DB /* GameKit.framework in Frameworks */,
+				3B622809190132B4004CD1BC /* CoreMotion.framework in Frameworks */,
+				3B622807190132A5004CD1BC /* CoreLocation.framework in Frameworks */,
+				3B6228051901328B004CD1BC /* CoreTelephony.framework in Frameworks */,
+				3B62280319013277004CD1BC /* SystemConfiguration.framework in Frameworks */,
+				3B62280119013265004CD1BC /* CoreImage.framework in Frameworks */,
+				3B6227FE19013243004CD1BC /* AdSupport.framework in Frameworks */,
 				DE4A3DB910FFB0FE00FDA492 /* libSparrow.a in Frameworks */,
 				DE5C4E6E138ED109004892CA /* libz.dylib in Frameworks */,
+				3BB8BE3D1900582200E72DB3 /* UbertestersSDK.framework in Frameworks */,
 				DE8E6AA416B441A6007EE8BA /* GLKit.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -299,6 +325,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				3BB8BE3A1900582200E72DB3 /* UbertestersSDK */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -383,6 +410,13 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BD4166D1901A2BC003680DB /* GameKit.framework */,
+				3B622808190132B4004CD1BC /* CoreMotion.framework */,
+				3B622806190132A5004CD1BC /* CoreLocation.framework */,
+				3B6228041901328B004CD1BC /* CoreTelephony.framework */,
+				3B62280219013277004CD1BC /* SystemConfiguration.framework */,
+				3B62280019013265004CD1BC /* CoreImage.framework */,
+				3B6227FD19013243004CD1BC /* AdSupport.framework */,
 				3B847FE818665EEA00678F84 /* JavaScriptCore.framework */,
 				DE5C4E6D138ED109004892CA /* libz.dylib */,
 				DE8E6AA316B441A6007EE8BA /* GLKit.framework */,
@@ -470,6 +504,15 @@
 				3B607024187B36A700A2AA0B /* Assets.m */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		3BB8BE3A1900582200E72DB3 /* UbertestersSDK */ = {
+			isa = PBXGroup;
+			children = (
+				3BB8BE3B1900582200E72DB3 /* UbertestersSDK.framework */,
+				3BB8BE3C1900582200E72DB3 /* UbertestersSDKResources.bundle */,
+			);
+			path = UbertestersSDK;
 			sourceTree = "<group>";
 		};
 		DE4A3DAB10FFB0DB00FDA492 /* Products */ = {
@@ -601,6 +644,7 @@
 				3B34F70C18B3E1B60090BD19 /* ship_small_cannon.xml in Resources */,
 				3B34F70E18B3E1B60090BD19 /* ship_small_cannon@2x.xml in Resources */,
 				3BEEAA7418E38E9800A06F60 /* hit.caf in Resources */,
+				3BB8BE3E1900582200E72DB3 /* UbertestersSDKResources.bundle in Resources */,
 				3B34F6FC18B3BE260090BD19 /* ship_pirate_small_cannon@2x.xml in Resources */,
 				3B45EFCA18CFD20F00D99515 /* ui.xml in Resources */,
 				3BEEAA6E18E38CB200A06F60 /* music_cove.aifc in Resources */,
@@ -670,7 +714,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UbertestersSDK",
+				);
 				INFOPLIST_FILE = "App-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = PirateGame;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -680,7 +729,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UbertestersSDK",
+				);
 				INFOPLIST_FILE = "App-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = PirateGame;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

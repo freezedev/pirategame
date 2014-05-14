@@ -32,7 +32,7 @@
     }
 }
 
--(BOOL) getPaused
+-(BOOL) paused
 {
     return _paused;
 }

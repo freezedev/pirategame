@@ -16,7 +16,7 @@
 @property (readonly) Scene *currentScene;
 
 -(void) addScene:(Scene *)scene;
--(void) addScene:(Scene *)scene WithName:(NSString *)name;
+-(void) addScene:(Scene *)scene withName:(NSString *)name;
 
 -(void) showScene:(NSString *)name;
 

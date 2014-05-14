@@ -12,19 +12,16 @@
 
 -(id) init
 {
+    return [self initWithName:@"scene"];
+}
+
+-(id) initWithName:(NSString *) sceneName
+{
     if ((self = [super init])) {
         self.guiLayer = [[SPSprite alloc] init];
         self.director = nil;
-        self.name = @"scene";
+        self.name = sceneName;
     }
-    
-    return self;
-}
-
--(id) initWithName:(NSString *) name
-{
-    self = [self init];
-    self.name = name;
     
     return self;
 }

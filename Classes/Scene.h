@@ -16,7 +16,7 @@
 @property NSString* name;
 @property id director;
 
--(id) initWithName:(NSString *)name;
+-(id) initWithName:(NSString *)sceneName;
 -(void) reset;
 -(void) stop;
 

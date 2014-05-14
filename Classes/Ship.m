@@ -24,7 +24,7 @@
     ((SPMovieClip *) _shootingClip[_direction]).visible = YES;
 }
 
--(ShipDirection) getDirection
+-(ShipDirection) direction
 {
     return _direction;
 }
@@ -46,7 +46,7 @@
     }
 }
 
--(int) getHitpoints
+-(int) hitpoints
 {
     return _hitpoints;
 }
